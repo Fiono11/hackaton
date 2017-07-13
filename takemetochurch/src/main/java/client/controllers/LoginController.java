@@ -40,7 +40,7 @@ public class LoginController {
             lbl_logininfo.setVisible(false);
         }
 
-        //
+        Navigation.getInstance().loadScreen("menu");
     }
 
     @FXML
