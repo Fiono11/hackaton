@@ -3,17 +3,17 @@ package server.model.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
-import server.model.User;
+import server.model.Life;
 import server.persistence.TransactionException;
 import server.persistence.hibernate.HibernateSessionManager;
 
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class UserDao implements Dao<User> {
+public class LifeDao implements Dao<Life> {
 
     @Override
-    public void create(User data) {
+    public void create(Life data) {
 
         try {
 
@@ -26,23 +26,23 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public User read(long id) {
-        User user;
+    public Life read(long id) {
+        Life life;
 
         try {
             Session session = getSession();
-            user = (User) session.createCriteria(User.class).add(Restrictions.
+            life = (Life) session.createCriteria(Life.class).add(Restrictions.
                     like("id", id)).uniqueResult();
 
 
         } catch (HibernateException e) {
             throw new TransactionException("Was impossible to find by id");
         }
-        return user;
+        return life;
     }
 
     @Override
-    public void update(User data) {
+    public void update(Life data) {
 
         try {
             Session session = getSession();
@@ -54,7 +54,7 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public void delete(User data) {
+    public void delete(Life data) {
 
         try {
             Session session = getSession();
@@ -63,20 +63,6 @@ public class UserDao implements Dao<User> {
         } catch (HibernateException e) {
             throw new TransactionException("Was impossible to delete");
         }
-    }
-
-    public User findByName(String username) throws TransactionException {
-        User user;
-
-        try {
-            Session session = getSession();
-            user = (User) session.createCriteria(User.class).add(Restrictions.
-                    like("username", username)).uniqueResult();
-
-        } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to find by id");
-        }
-        return user;
     }
 
     private Session getSession() {
