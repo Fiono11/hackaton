@@ -10,9 +10,10 @@
         </id>
 
         <property name="ceremony" type="string" column="cereminy"/>
-        <property name="bodytreatment" type="org.hibernate.type.EnumType" column="bodytreatment"/>
-        <property name="music" type="true_false" column="music"/>
+        <property name="bodytreatment" type="string" column="bodytreatment"/>
+        <property name="music" type="string" column="music"/>
         <property name="numberofguests" type="integer" column="numberofguests"/>
-        <property name="religion" type="true_false" column="religion"/>
+        <property name="religion" type="string" column="religion"/>
+        <property name="budget" type="string" column="buget"/>
 
     </class>

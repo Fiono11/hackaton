@@ -6,22 +6,24 @@ package server.model;
 public class Death {
 
     private long id;
+
     private String ceremony;
-    private BodyTreatment bodyTreatment;
-    private boolean music;
+    private String bodyTreatment;
+    private String music;
+    private String religion;
     private int numberOfGuests;
-    private boolean religion;
+    private int budget;
 
     public Death(){
-
     }
 
-    public Death(String ceremony, BodyTreatment bodyTreatment, boolean music, int numberOfGuests, boolean religion) {
+    public Death(String ceremony, String bodyTreatment, String music, int numberOfGuests, String religion, int budget) {
         this.ceremony = ceremony;
         this.bodyTreatment = bodyTreatment;
         this.music = music;
         this.numberOfGuests = numberOfGuests;
         this.religion = religion;
+        this.budget = budget;
     }
 
     public long getId() {
@@ -40,20 +42,12 @@ public class Death {
         this.ceremony = ceremony;
     }
 
-    public BodyTreatment getBodyTreatment() {
+    public String getBodyTreatment() {
         return bodyTreatment;
     }
 
-    public void setBodyTreatment(BodyTreatment bodyTreatment) {
+    public void setBodyTreatment(String bodyTreatment) {
         this.bodyTreatment = bodyTreatment;
-    }
-
-    public boolean isMusic() {
-        return music;
-    }
-
-    public void setMusic(boolean music) {
-        this.music = music;
     }
 
     public int getNumberOfGuests() {
@@ -64,11 +58,19 @@ public class Death {
         this.numberOfGuests = numberOfGuests;
     }
 
-    public boolean isReligion() {
+    public String getMusic() {
+        return music;
+    }
+
+    public void setMusic(String music) {
+        this.music = music;
+    }
+
+    public String getReligion() {
         return religion;
     }
 
-    public void setReligion(boolean religion) {
+    public void setReligion(String religion) {
         this.religion = religion;
     }
 }

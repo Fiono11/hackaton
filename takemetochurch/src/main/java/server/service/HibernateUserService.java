@@ -94,32 +94,6 @@ public class HibernateUserService implements UserService{
     }
 
     @Override
-    public int count() {
-
-        int result = 0;
-
-        try {
-
-            Session session = sessionManager.beginTransaction();
-
-            List<User> userList = session.createCriteria(User.class).list();
-
-            result = userList.size();
-
-            sessionManager.commitTransaction();
-
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            sessionManager.rollbackTransaction();
-
-        } catch (ClassCastException e){
-            e.printStackTrace();
-        }
-
-        return result;
-    }
-
-    @Override
     public String getName() {
         return UserService.class.getSimpleName();
     }
