@@ -1,4 +1,4 @@
-package client;
+package shared;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

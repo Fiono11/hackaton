@@ -4,7 +4,7 @@ import client.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import utils.Verification;
+import client.utils.Verification;
 
 public class LoginController {
 
