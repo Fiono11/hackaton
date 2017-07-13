@@ -80,7 +80,7 @@ public class RegisterController implements Initializable {
             if (!checkEmail) {
                 setText(lb_email, "(* Invalid email)");
             }
-           // checkPass = Verification.checkPassword(tf_password);
+            checkPass = Verification.checkPassword(tf_password);
             if (!checkPass) {
                 setText(lb_password_reg, "(* Minimum of 8 characters containing at least\n 1 number," +
                         " 1 lower case and 1 upper case letter)");
