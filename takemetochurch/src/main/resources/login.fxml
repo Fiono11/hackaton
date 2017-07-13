@@ -55,12 +55,12 @@
             <Insets />
          </GridPane.margin>
       </Button>
-      <Hyperlink fx:id="link_register" onAction="#onRegister" style="-fx-text-fill: white;" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <Hyperlink fx:id="link_register" onAction="#onRegister" style="-fx-text-fill: black;" text="Register" GridPane.halignment="CENTER" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Hyperlink>
-      <Label fx:id="lbl_logininfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="200.0" text="lbl_error" textAlignment="CENTER" textFill="RED" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+      <Label fx:id="lbl_logininfo" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
          <font>
             <Font size="14.0" />
          </font></Label>

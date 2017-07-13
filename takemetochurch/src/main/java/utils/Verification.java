@@ -24,18 +24,6 @@ public class Verification {
     }
 
 
-    public static boolean checkPassword(PasswordField password) {
-        boolean check = false;
-
-        if (password.getText().matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])" +
-                "(?=.*[A-Z])(?=.*[a-z]).*$")) {
-
-            check = true;
-        }
-
-        return check;
-    }
-
 
     public static boolean checkEmail(TextField email) {
         boolean checkMail = false;
@@ -47,5 +35,17 @@ public class Verification {
         }
 
         return checkMail;
+    }
+
+    public static boolean checkPassword(PasswordField password) {
+        boolean check = false;
+
+        if (password.getText().matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])" +
+                "(?=.*[A-Z])(?=.*[a-z]).*$")) {
+
+            check = true;
+        }
+
+        return check;
     }
 }

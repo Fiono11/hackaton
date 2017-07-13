@@ -15,18 +15,18 @@
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="70.0" prefHeight="50.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="20.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <TextField fx:id="tf_username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
@@ -41,7 +41,7 @@
             <Insets bottom="1.0" left="3.0" right="1.0" top="1.0" />
          </GridPane.margin>
       </Label>
-      <PasswordField fx:id="tf_firstname" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="First Name" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <TextField fx:id="tf_firstname" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="First Name" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
       <Label fx:id="lb_firstname" text="lblpasswordreg" textFill="RED" visible="false" GridPane.rowIndex="4">
          <font>
             <Font size="10.0" />
@@ -65,7 +65,7 @@
             <Insets left="3.0" />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="tf_password" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Password" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+      <PasswordField fx:id="tf_password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Password" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
       <Label fx:id="lb_password_reg" text="lblpasswordreg" textFill="RED" visible="false" GridPane.rowIndex="8">
          <font>
             <Font size="10.0" />

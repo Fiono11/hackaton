@@ -1,5 +1,6 @@
 package server.service;
 
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;

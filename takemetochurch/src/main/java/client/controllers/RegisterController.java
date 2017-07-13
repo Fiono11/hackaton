@@ -26,7 +26,7 @@ public class RegisterController implements Initializable {
     private Label lb_username_reg;
 
     @FXML
-    private PasswordField tf_firstname;
+    private TextField tf_firstname;
 
     @FXML
     private Label lb_firstname;
@@ -38,7 +38,7 @@ public class RegisterController implements Initializable {
     private Label lb_lastname;
 
     @FXML
-    private TextField tf_password;
+    private PasswordField tf_password;
 
     @FXML
     private Label lb_password_reg;
@@ -57,6 +57,7 @@ public class RegisterController implements Initializable {
 
     private boolean fieldEmpty;
     private boolean checkEmail;
+    private boolean checkPass;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,6 +80,12 @@ public class RegisterController implements Initializable {
             if (!checkEmail) {
                 setText(lb_email, "(* Invalid email)");
             }
+           // checkPass = Verification.checkPassword(tf_password);
+            if (!checkPass) {
+                setText(lb_password_reg, "(* Minimum of 8 characters containing at least\n 1 number," +
+                        " 1 lower case and 1 upper case letter)");
+            }
+
         }
 
         // pedir ao serviço para enviar o registo
