@@ -1,4 +1,4 @@
-package utils;
+package client.utils;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
