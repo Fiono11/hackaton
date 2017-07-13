@@ -1,4 +1,4 @@
-package server.persistence;
+package server.persistence.hibernate;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -35,11 +35,11 @@ public class HibernateSessionManager {
 
     public static HibernateSessionManager getInstance() {
 
-        if (instance == null){
+        if (instance == null) {
 
-            synchronized (HibernateSessionManager.class){
+            synchronized (HibernateSessionManager.class) {
 
-                if (instance == null){
+                if (instance == null) {
                     instance = new HibernateSessionManager();
                 }
             }
@@ -48,30 +48,14 @@ public class HibernateSessionManager {
         return instance;
     }
 
-    private Session getSession() {
-        // Hibernate will automatically open a new session if needed
-        // Closing the session is not required
+    // Hibernate will automatically open a new session if needed
+    // Closing the session is not required
+    public Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
     // Required to stop hibernate and allow the application to terminate
     public void close() {
         sessionFactory.close();
-    }
-
-    public Session beginTransaction() {
-
-        Session session = getSession();
-        session.beginTransaction();
-
-        return session;
-    }
-
-    public void commitTransaction() {
-        getSession().getTransaction().commit();
-    }
-
-    public void rollbackTransaction()  {
-        getSession().getTransaction().rollback();
     }
 }

@@ -3,3 +3,14 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+
+    <class name="server.model.Life" table="life">
+    <id name="id" type="long" column="id">
+        <generator class="identity"/>
+    </id>
+
+    <property name="message" type="string" column="message"/>
+
+    </class>
+
+</hibernate-mapping>

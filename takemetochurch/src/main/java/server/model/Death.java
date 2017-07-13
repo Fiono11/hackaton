@@ -50,14 +50,6 @@ public class Death {
         this.bodyTreatment = bodyTreatment;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
-    }
-
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
-    }
-
     public String getMusic() {
         return music;
     }
@@ -72,5 +64,21 @@ public class Death {
 
     public void setReligion(String religion) {
         this.religion = religion;
+    }
+
+    public int getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public void setNumberOfGuests(int numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
     }
 }
