@@ -24,6 +24,8 @@
         <property name="hibernate.show_sql">true</property>
 
         <mapping resource="persistence/User.hbm.xml"/>
+        <mapping resource="persistence/Death.hbm.xml"/>
+        <mapping resource="persistence/Life.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -4,10 +4,17 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="server.User" table="User">
+    <class name="server.model.User" table="user">
         <id name="id" column="id" type="long">
             <generator class="identity"/>
         </id>
 
+        <property name="username" column="username" type="string"/>
+        <property name="password" column="password" type="string"/>
+        <property name="firstName" column="firstname" type="string"/>
+        <property name="lastName" column="lastname" type="string"/>
+        <property name="email" column="email" type="string"/>
 
+
+    </class>
 </hibernate-mapping>
