@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class>
+        <id name="id" type="long" column="id">
+            <generator class="identity"/>
+        </id>
+
+        <property name="ceremony" type="string" column="cereminy"/>
+        <property name="bodytreatment" type="org.hibernate.type.EnumType" column="bodytreatment"/>
+        <property name="music" type="true_false" column="music"/>
+        <property name="numberofguests" type="integer" column="numberofguests"/>
+        <property name="religion" type="true_false" column="religion"/>
+
+    </class>
