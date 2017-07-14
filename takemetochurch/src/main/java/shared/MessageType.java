@@ -7,8 +7,7 @@ public enum MessageType {
 
     LOGIN,
     REGISTRY,
-    LIFE_TEXT,
-    LIFE_BOOLEAN,
+    LIFE,
     DEATH,
     SHUTDOWN
 }

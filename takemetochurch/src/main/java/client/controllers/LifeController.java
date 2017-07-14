@@ -70,36 +70,6 @@ public class LifeController implements Initializable {
 
     private LinkedList<String> toDos;
 
-    @FXML
-    private CheckBox toDo_1_check;
-
-    @FXML
-    private CheckBox toDo_2_check;
-
-    @FXML
-    private CheckBox toDo_3_check;
-
-    @FXML
-    private CheckBox toDo_4_check;
-
-    @FXML
-    private CheckBox toDo_5_check;
-
-    @FXML
-    private CheckBox toDo_6_check;
-
-    @FXML
-    private CheckBox toDo_7_check;
-
-    @FXML
-    private CheckBox toDo_8_check;
-
-    @FXML
-    private CheckBox toDo_9_check;
-
-    @FXML
-    private CheckBox toDo_10_check;
-
     private int i;
 
     @Override
@@ -145,22 +115,9 @@ public class LifeController implements Initializable {
         map.put(Values.TODO_10, toDo_10.getText());
 
         Map<String, String> map1 = new HashMap<>();
-        map.put(Values.TODO_1, Boolean.toString(toDo_1_check.isSelected()));
-        map.put(Values.TODO_2, Boolean.toString(toDo_2_check.isSelected()));
-        map.put(Values.TODO_3, Boolean.toString(toDo_3_check.isSelected()));
-        map.put(Values.TODO_4, Boolean.toString(toDo_4_check.isSelected()));
-        map.put(Values.TODO_5, Boolean.toString(toDo_5_check.isSelected()));
-        map.put(Values.TODO_6, Boolean.toString(toDo_6_check.isSelected()));
-        map.put(Values.TODO_7, Boolean.toString(toDo_7_check.isSelected()));
-        map.put(Values.TODO_8, Boolean.toString(toDo_8_check.isSelected()));
-        map.put(Values.TODO_9, Boolean.toString(toDo_9_check.isSelected()));
-        map.put(Values.TODO_10, Boolean.toString(toDo_10_check.isSelected()));
 
-        Message message = new Message(MessageType.LIFE_TEXT, (HashMap<String, String>) map);
+        Message message = new Message(MessageType.LIFE, (HashMap<String, String>) map);
         communication.write(message);
-
-        Message message1 = new Message(MessageType.LIFE_BOOLEAN, (HashMap<String, String>) map1);
-        communication.write(message1);
     }
 
     public void unnullifie() {
