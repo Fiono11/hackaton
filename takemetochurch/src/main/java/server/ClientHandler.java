@@ -1,5 +1,6 @@
 package server;
 
+import server.task_manager.Task;
 import shared.Communication;
 import shared.Message;
 

@@ -184,6 +184,6 @@ public class RegisterController implements Initializable {
     }
 
     private void playSound() {
-        new MediaPlayer(new Media(getClass().getResource("/takemetochurch.mp3").toString())).play();
+        new MediaPlayer(new Media(getClass().getResource("/sound/takemetochurch.mp3").toString())).play();
     }
 }

@@ -1,6 +1,7 @@
 package server;
 
 import server.service.HibernateUserService;
+import server.task_manager.Task;
 import server.task_manager.TaskManager;
 
 import java.io.IOException;
