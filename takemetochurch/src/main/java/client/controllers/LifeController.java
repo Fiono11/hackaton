@@ -92,6 +92,7 @@ public class LifeController implements Initializable {
         textFields.add(toDo_10);
 
         addToDos();
+        addLifeSound();
     }
 
     @FXML
@@ -176,5 +177,9 @@ public class LifeController implements Initializable {
                 i++;
             }
         });
+    }
+
+    public void addLifeSound() {
+        new MediaPlayer(new Media(getClass().getResource("/life.mp3").toString())).play();
     }
 }
