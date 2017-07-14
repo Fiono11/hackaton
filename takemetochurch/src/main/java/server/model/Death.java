@@ -6,19 +6,19 @@ package server.model;
 public class Death implements Data {
 
     private long id;
-    private String ceremony;
     private String bodyTreatment;
-    private String music;
     private String religion;
+    private String food;
+    private String music;
+    private String numberOfGuests;
     private String specialRequest;
-    private int numberOfGuests;
-    private int budget;
+    private String budget;
 
     public Death() {
     }
 
-    public Death(String ceremony, String bodyTreatment, String music, int numberOfGuests, String religion, int budget) {
-        this.ceremony = ceremony;
+    public Death(String bodyTreatment, String religion, String food, String music, String numberOfGuests, String specialRequest , String budget) {
+        this.food = food;
         this.bodyTreatment = bodyTreatment;
         this.music = music;
         this.numberOfGuests = numberOfGuests;
@@ -32,14 +32,6 @@ public class Death implements Data {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getCeremony() {
-        return ceremony;
-    }
-
-    public void setCeremony(String ceremony) {
-        this.ceremony = ceremony;
     }
 
     public String getBodyTreatment() {
@@ -66,27 +58,35 @@ public class Death implements Data {
         this.religion = religion;
     }
 
-    public int getNumberOfGuests() {
-        return numberOfGuests;
-    }
-
-    public void setNumberOfGuests(int numberOfGuests) {
-        this.numberOfGuests = numberOfGuests;
-    }
-
-    public int getBudget() {
-        return budget;
-    }
-
-    public void setBudget(int budget) {
-        this.budget = budget;
-    }
-
     public String getSpecialRequest() {
         return specialRequest;
     }
 
     public void setSpecialRequest(String specialRequest) {
         this.specialRequest = specialRequest;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public String getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public void setNumberOfGuests(String numberOfGuests) {
+        this.numberOfGuests = numberOfGuests;
+    }
+
+    public String getBudget() {
+        return budget;
+    }
+
+    public void setBudget(String budget) {
+        this.budget = budget;
     }
 }

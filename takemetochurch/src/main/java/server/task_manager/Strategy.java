@@ -1,4 +1,4 @@
-package server;
+package server.task_manager;
 
 import server.model.Death;
 import server.model.Life;
@@ -67,6 +67,10 @@ public class Strategy {
             case LIFE_C:
                 Life life = creatLife(map);
                 userService.addData(Values.LIFEDAO,life);
+                String name = communication.getName();
+                User user1 = userService.findByName(name);
+                user1.setLife(life);
+                userService.updateData(Values.USERDAO, user1);
                 break;
             case LIFE_R:
                 Life life1 = userService.getLife(communication.getName());
@@ -82,10 +86,13 @@ public class Strategy {
                 userService.removeData(Values.LIFEDAO,life3);
                 break;
             case DEATH_C:
-                System.out.println("death_c");
                 Death death = creatDeath(map);
-                System.out.println("death " + death.toString());
                 userService.addData(Values.DEATHDAO,death);
+                String name1 = communication.getName();
+                User user2 = userService.findByName(name1);
+                user2.setDeath(death);
+                userService.updateData(Values.USERDAO, user2);
+                System.out.println("id dos mortos: " + death.getId());
                 break;
             case DEATH_R:
                 Death death1 = userService.getDeath(communication.getName());
@@ -102,8 +109,8 @@ public class Strategy {
             case DEATH_D:
                 Death death3 = userService.getDeath(communication.getName());
                 userService.removeData(Values.DEATHDAO,death3);
+                System.out.println(userService.findByName(communication.getName()).getDeath());
                 break;
-            //TODO add the other cases
         }
 
     }
@@ -114,12 +121,13 @@ public class Strategy {
         if(death1 != null){
 
 
-        map.put(Values.CEREMONY,death1.getCeremony());
         map.put(Values.BODYTREAMENT,death1.getBodyTreatment());
-        map.put(Values.MUSIC,death1.getMusic());
         map.put(Values.RELIGION,death1.getReligion());
-        map.put(Values.NUMBEROFGUESTS,Integer.toString(death1.getNumberOfGuests()));
-        map.put(Values.BUDGET,Integer.toString(death1.getBudget()));
+        map.put(Values.FOOD,death1.getFood());
+        map.put(Values.MUSIC,death1.getMusic());
+        map.put(Values.NUMBER_OF_GUESTS,death1.getNumberOfGuests());
+        map.put(Values.SPECIAL_REQUEST, death1.getSpecialRequest());
+        map.put(Values.BUDGET, death1.getBudget());
         }
 
         return new Message(type,map);
@@ -134,7 +142,15 @@ public class Strategy {
             i++;
         }
 
-        Death death = new Death(prop[0], prop[1], prop[2], Integer.parseInt(prop[3]), prop[4], Integer.parseInt(prop[5]));
+        String bodyTreatment = map.get(Values.BODYTREAMENT);
+        String religion = map.get(Values.RELIGION);
+        String food = map.get(Values.FOOD);
+        String music = map.get(Values.MUSIC);
+        String numberOfGuests = map.get(Values.NUMBER_OF_GUESTS);
+        String specialRequest = map.get(Values.SPECIAL_REQUEST);
+        String budget = map.get(Values.BUDGET);
+
+        Death death = new Death(bodyTreatment,religion,food,music,numberOfGuests,specialRequest,budget);
         return death;
 
     }

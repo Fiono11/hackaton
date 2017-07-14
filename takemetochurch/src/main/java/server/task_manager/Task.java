@@ -1,4 +1,4 @@
-package server;
+package server.task_manager;
 
 import server.service.HibernateUserService;
 import shared.Communication;

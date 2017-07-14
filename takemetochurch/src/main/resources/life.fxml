@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -31,6 +32,7 @@
             <TextField fx:id="toDo_8" layoutX="20.0" layoutY="246.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
             <TextField fx:id="toDo_9" layoutX="20.0" layoutY="273.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
             <TextField fx:id="toDo_10" layoutX="20.0" layoutY="300.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
+            <Label fx:id="submit_label" layoutX="272.0" layoutY="335.0" text="Label" visible="false"/>
          </children></AnchorPane>
   </content>
 </ScrollPane>

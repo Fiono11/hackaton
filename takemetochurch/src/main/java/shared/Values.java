@@ -23,9 +23,6 @@ public class Values {
     public static final String TODO_8 = "todo_8";
     public static final String TODO_9 = "todo_9";
     public static final String TODO_10 = "todo_10";
-    public static final String LOCATION = "location";
-    public static final String OFFICIATOR = "officiator";
-    public static final String CONTACT = "contact";
     public static final String RESPONSE = "response";
     public static final String OK = "ok";
     public static final String NOT_OK = "not ok";
@@ -33,7 +30,6 @@ public class Values {
     public static final String USERDAO= "userdao";
     public static final String DEATHDAO= "deathdao";
     public static final String LIFEDAO= "lifedao";
-    public static final String BUCKET_LIST = "bucket list";
     public static final String ID = "id";
 
     public static final String P1 = "p1";
@@ -46,10 +42,12 @@ public class Values {
     public static final String P8 = "p8";
     public static final String P9 = "p9";
 
-    public static final String NUMBEROFGUESTS = "numberofguests";
+    public static final String NUMBER_OF_GUESTS = "numberofguests";
     public static final String BUDGET = "budget";
-    public static final String CEREMONY = "ceremony";
+    public static final String FOOD = "ceremony";
     public static final String BODYTREAMENT = "bodytreament";
     public static final String MUSIC = "music";
     public static final String RELIGION = "religion";
+    public static final String SPECIAL_REQUEST = "specialrequest";
+    public static final String PHONE = "phone";
 }

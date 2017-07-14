@@ -15,8 +15,12 @@ public class UserDao implements Dao<User> {
     @Override
     public void create(User data) {
 
-        try {
+        User user = findByName(data.getUsername());
 
+        if (user != null) {
+            return;
+        }
+        try {
             Session session = getSession();
             session.save(data);
 
@@ -36,7 +40,7 @@ public class UserDao implements Dao<User> {
 
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to find by id");
+            throw new TransactionException("Was impossible to find by id " + e.getMessage());
         }
         return user;
     }
@@ -49,7 +53,7 @@ public class UserDao implements Dao<User> {
             session.update(data);
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible update");
+            throw new TransactionException("Was impossible update " + e.getMessage());
         }
     }
 
@@ -61,7 +65,7 @@ public class UserDao implements Dao<User> {
             session.delete(data);
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to deleteById");
+            throw new TransactionException("Was impossible to deleteById " + e.getMessage());
         }
     }
 
@@ -74,7 +78,7 @@ public class UserDao implements Dao<User> {
                     like("username", username)).uniqueResult();
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to find by id");
+            throw new TransactionException("Was impossible to find by id " + e.getMessage());
         }
         return user;
     }
@@ -90,7 +94,7 @@ public class UserDao implements Dao<User> {
 
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to find by id");
+            throw new TransactionException("Was impossible to find by id " + e.getMessage());
         }
         return user;
     }

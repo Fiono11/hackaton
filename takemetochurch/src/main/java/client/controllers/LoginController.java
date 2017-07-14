@@ -85,6 +85,9 @@ public class LoginController implements Initializable {
 
     @FXML
     void onRegister(ActionEvent event) {
+        lbl_logininfo.setVisible(false);
+        lbl_username.setVisible(false);
+        lbl_password.setVisible(false);
         Navigation.getInstance().loadScreen("register");
     }
 
@@ -110,7 +113,7 @@ public class LoginController implements Initializable {
         type.setVisible(true);
     }
 
-    private void playSound() {
+    /*private void playSound() {
         new MediaPlayer(new Media(getClass().getResource("/takemetochurch.mp3").toString())).play();
-    }
+    }*/
 }

@@ -1,4 +1,4 @@
-package server;
+package server.task_manager;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;

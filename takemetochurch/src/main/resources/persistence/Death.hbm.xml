@@ -9,13 +9,13 @@
             <generator class="identity"/>
         </id>
 
-        <property name="ceremony" type="string" column="ceremony"/>
         <property name="bodyTreatment" type="string" column="bodytreatment"/>
-        <property name="music" type="string" column="music"/>
         <property name="religion" type="string" column="religion"/>
-        <property name="numberOfGuests" type="integer" column="numberofguests"/>
-        <property name="budget" type="integer" column="budget"/>
+        <property name="food" type="string" column="ceremony"/>
+        <property name="music" type="string" column="music"/>
+        <property name="numberOfGuests" type="string" column="numberofguests"/>
         <property name="specialRequest" type="string" column="specialrequest"/>
+        <property name="budget" type="string" column="budget"/>
 
     </class>
 </hibernate-mapping>

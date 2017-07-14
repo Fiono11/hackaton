@@ -1,7 +1,7 @@
 package server;
 
 import server.service.HibernateUserService;
-import shared.MessageType;
+import server.task_manager.TaskManager;
 
 import java.io.IOException;
 import java.net.ServerSocket;
