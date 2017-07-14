@@ -61,7 +61,6 @@ public class Navigation {
         setScene(scenes.peek());
     }
 
-
     public static Navigation getInstance() {
 
         if (instance == null) {
