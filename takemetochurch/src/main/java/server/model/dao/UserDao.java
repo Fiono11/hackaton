@@ -85,7 +85,7 @@ public class UserDao implements Dao<User> {
 
         try {
             Session session = getSession();
-            user = (User)session.createCriteria(User.class).add(Restrictions.
+            user = (User) session.createCriteria(User.class).add(Restrictions.
                     like("id", id)).uniqueResult();
 
 

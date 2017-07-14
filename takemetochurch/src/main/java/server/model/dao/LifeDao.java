@@ -72,7 +72,7 @@ public class LifeDao implements Dao<Life> {
 
         try {
             Session session = getSession();
-            life = (Life)session.createCriteria(Life.class).add(Restrictions.
+            life = (Life) session.createCriteria(Life.class).add(Restrictions.
                     like("id", id)).uniqueResult();
 
 

@@ -71,7 +71,7 @@ public class DeathDao implements Dao<Death> {
 
         try {
             Session session = getSession();
-            death = (Death)session.createCriteria(Death.class).add(Restrictions.
+            death = (Death) session.createCriteria(Death.class).add(Restrictions.
                     like("id", id)).uniqueResult();
 
 

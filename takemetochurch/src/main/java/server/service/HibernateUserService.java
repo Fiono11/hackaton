@@ -94,7 +94,7 @@ public class HibernateUserService {
             transactionManager.rollback();
             e.printStackTrace();
         }
-        return (T)data;
+        return (T) data;
     }
 
     public <T extends Data> void removeData(String daoName, T data) {

@@ -3,7 +3,7 @@ package server.model;
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class User implements Data{
+public class User implements Data {
 
     private long id;
     private String username;
