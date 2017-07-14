@@ -182,7 +182,7 @@ public class LifeController implements Initializable {
     }
 
     public void addToDos() {
-        toDos.add("Eat Poop");
+        toDos.add("Hack Elton Jorge");
         toDos.add("Flip on a Trampoline");
         toDos.add("Get a Tattoo");
         toDos.add("Fight a Shark");
@@ -190,7 +190,7 @@ public class LifeController implements Initializable {
         toDos.add("Chase a Tornado");
         toDos.add("Feed a Crocodile");
         toDos.add("Compete in a Frog Jumping Contest");
-        toDos.add("Complete a Horse Jumping Obstacle");
+        toDos.add("Cenas");
         toDos.add("Milk a Cow");
         toDos.add("Do a Hackaton");
         toDos.add("Go to Covilhã by Foot");
