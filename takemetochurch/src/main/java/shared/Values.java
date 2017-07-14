@@ -12,4 +12,8 @@ public class Values {
     public static final String FIRST_NAME = "first name";
     public static final String LAST_NAME = "last name";
     public static final String EMAIL = "email";
+
+    public static final String USERDAO= "userdao";
+    public static final String DEATHDAO= "deathdao";
+    public static final String LIFEDAO= "lifedao";
 }

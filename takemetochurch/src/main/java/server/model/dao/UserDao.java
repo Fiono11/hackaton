@@ -80,7 +80,7 @@ public class UserDao implements Dao<User> {
     }
 
     @Override
-    public User finById(Long id) throws TransactionException {
+    public User findById(Long id) throws TransactionException {
         User user;
 
         try {

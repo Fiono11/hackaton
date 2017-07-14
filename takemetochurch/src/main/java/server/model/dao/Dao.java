@@ -13,5 +13,5 @@ public interface Dao<T> {
 
     void delete(T data);
 
-    T finById(Long id);
+    T findById(Long id);
 }

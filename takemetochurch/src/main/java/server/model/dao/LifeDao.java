@@ -67,7 +67,7 @@ public class LifeDao implements Dao<Life> {
     }
 
     @Override
-    public Life finById(Long id) throws TransactionException {
+    public Life findById(Long id) throws TransactionException {
         Life life;
 
         try {

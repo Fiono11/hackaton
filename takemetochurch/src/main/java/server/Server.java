@@ -1,10 +1,6 @@
 package server;
 
-import server.model.dao.UserDao;
-import server.persistence.hibernate.HibernateTransactionManager;
 import server.service.HibernateUserService;
-import server.service.UserService;
-import shared.Communication;
 
 import java.io.IOException;
 import java.net.ServerSocket;
