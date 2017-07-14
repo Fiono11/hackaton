@@ -115,7 +115,6 @@ public class RegisterController implements Initializable {
             Message message = new Message(MessageType.REGISTRY, (HashMap<String, String>) map);
             Navigation.getInstance().getCommunication().write(message);
 
-            playSound();
         }
     }
 
@@ -162,7 +161,5 @@ public class RegisterController implements Initializable {
         type.setVisible(true);
     }
 
-    private void playSound() {
-        new MediaPlayer(new Media(getClass().getResource("/takemetochurch.mp3").toString())).play();
-    }
+
 }

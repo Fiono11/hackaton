@@ -19,7 +19,6 @@ import shared.Values;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -113,6 +112,6 @@ public class DeathController implements Initializable {
     }
 
     public void addSound() {
-        new MediaPlayer(new Media(getClass().getResource("/death.mp3").toString())).play();
+        new MediaPlayer(new Media(getClass().getResource("/sounds/death.mp3").toString())).play();
     }
 }

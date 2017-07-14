@@ -4,7 +4,6 @@ import client.Navigation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
@@ -163,7 +162,7 @@ public class LifeController implements Initializable {
     }
 
     public void addSound() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/drumroll.mp3").toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/drumroll.mp3").toString()));
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
@@ -183,6 +182,6 @@ public class LifeController implements Initializable {
     }
 
     public void addLifeSound() {
-        new MediaPlayer(new Media(getClass().getResource("/life.mp3").toString())).play();
+        new MediaPlayer(new Media(getClass().getResource("/sounds/life.mp3").toString())).play();
     }
 }
