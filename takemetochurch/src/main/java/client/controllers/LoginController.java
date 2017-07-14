@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
         map.put(Values.USERNAME, lbl_username.getText());
         map.put(Values.PASSWORD, lbl_password.getText());
 
-        Message message = new Message(MessageType.LOGIN, (HashMap) map);
+        Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
         System.out.println(message);
         Navigation.getInstance().getCommunication().write(message);
     }
