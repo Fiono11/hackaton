@@ -14,7 +14,7 @@
         <property name="firstName" column="firstname" type="string"/>
         <property name="lastName" column="lastname" type="string"/>
         <property name="email" column="email" type="string"/>
-
+        <property name="phoneNumber" column="phonenumber" type="string"/>
         <many-to-one name="death" column="death_id" class="server.model.Death" cascade="all" unique="true"/>
         <many-to-one name="life" column="life_id" class="server.model.Life" cascade="all" unique="true"/>
 
