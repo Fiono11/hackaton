@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import client.utils.Verification;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import shared.Message;
 import shared.MessageType;
 import shared.Values;
@@ -87,6 +89,8 @@ public class RegisterController implements Initializable {
             map.put(Values.LAST_NAME, tf_lastname.getText());
             Message message = new Message(MessageType.REGISTRY, (HashMap<String, String>) map);
             Navigation.getInstance().getCommunication().write(message);
+
+            playSound();
         }
     }
 
@@ -125,5 +129,9 @@ public class RegisterController implements Initializable {
     private <T extends Labeled> void setText(T type, String message) {
         type.setText(message);
         type.setVisible(true);
+    }
+
+    private void playSound() {
+        new MediaPlayer(new Media(getClass().getResource("takemetochurch.mp3").toString())).play();
     }
 }

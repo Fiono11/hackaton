@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import client.utils.Verification;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import shared.Communication;
 import shared.Message;
 import shared.MessageType;
@@ -65,14 +67,16 @@ public class LoginController implements Initializable {
         Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
         System.out.println(message);
         communication.write(message);
-        //Navigation.getInstance().loadScreen("menu");
+        Navigation.getInstance().loadScreen("menu");
         //communication.read();
 
-        Message input = communication.read();
+        //Message input = communication.read();
 
-        if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
+        /*if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
             Navigation.getInstance().loadScreen("menu");
-        }
+        }*/
+
+        playSound();
     }
 
     @FXML
@@ -101,5 +105,7 @@ public class LoginController implements Initializable {
         type.setVisible(true);
     }
 
-
+    private void playSound() {
+        new MediaPlayer(new Media(getClass().getResource("/takemetochurch.mp3").toString())).play();
+    }
 }
