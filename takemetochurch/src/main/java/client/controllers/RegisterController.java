@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import client.utils.Verification;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import shared.Communication;
 import shared.Message;
 import shared.MessageType;
 import shared.Values;
@@ -72,10 +73,11 @@ public class RegisterController implements Initializable {
     private boolean checkEmail;
     private boolean checkPass;
     private boolean checkPhone;
+    private Communication communication;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        communication = Navigation.getInstance().getCommunication();
     }
 
     @FXML
@@ -87,23 +89,30 @@ public class RegisterController implements Initializable {
     void onRegister(ActionEvent event) {
 
         Verification.cleanRegisterMsg(lb_username_reg, lb_password_reg, lb_firstname, lb_lastname, lbl_phone, lbl_email);
-
+        int i = 0;
         if (!emptyField()) {
 
             checkEmail = Verification.checkEmail(tf_email);
 
             if (!checkEmail) {
                 setText(lbl_email, "(* Invalid email)    ");
+                i++;
             }
             checkPass = Verification.checkPassword(tf_password);
             if (!checkPass) {
                 setText(lb_password_reg, "(* Minimum of 8 characters containing at least\n 1 number," +
                         " 1 lower case and 1 upper case letter)  ");
+                i++;
             }
 
             checkPhone = Verification.checkPhone(tf_phone);
             if (!checkPhone) {
                 setText(lbl_phone, "(* Invalid phone number)    ");
+                i++;
+            }
+
+            if (i != 0){
+                return;
             }
 
             Map<String, String> map = new HashMap<>();
@@ -113,9 +122,17 @@ public class RegisterController implements Initializable {
             map.put(Values.FIRST_NAME, tf_firstname.getText());
             map.put(Values.LAST_NAME, tf_lastname.getText());
             Message message = new Message(MessageType.REGISTRY, (HashMap<String, String>) map);
-            Navigation.getInstance().getCommunication().write(message);
+            communication.write(message);
 
-            playSound();
+            Message message1 = communication.read();
+            if(message1.getMapContent().get(Values.RESPONSE).equals(Values.OK)){
+                Navigation.getInstance().back();
+            }
+            else {
+                lbl_email.setText("Register Failed. Try again.");
+            }
+
+            //playSound();
         }
     }
 

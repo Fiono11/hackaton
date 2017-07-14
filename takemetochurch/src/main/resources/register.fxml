@@ -33,7 +33,7 @@
   </rowConstraints>
    <children>
       <TextField fx:id="tf_username" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Username" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label fx:id="lb_username_reg" text="lbluserreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Label fx:id="lb_username_reg" styleClass="label1" text="lbluserreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -45,7 +45,7 @@
          </GridPane.margin>
       </Label>
       <TextField fx:id="tf_firstname" layoutX="20.0" layoutY="195.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="First Name" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-      <Label fx:id="lb_firstname" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+      <Label fx:id="lb_firstname" styleClass="label1" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -57,7 +57,7 @@
          </GridPane.margin>
       </Label>
       <TextField fx:id="tf_lastname" layoutX="20.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Last Name" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-      <Label fx:id="lb_lastname" text="lblfirstnamereg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+      <Label fx:id="lb_lastname" styleClass="label1" text="lblfirstnamereg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -69,7 +69,7 @@
          </GridPane.margin>
       </Label>
       <PasswordField fx:id="tf_password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Password" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-      <Label fx:id="lb_password_reg" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+      <Label fx:id="lb_password_reg" styleClass="label1" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -78,7 +78,7 @@
          </padding>
       </Label>
       <TextField fx:id="tf_phone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Phone Number" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-      <Label fx:id="lbl_phone" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+      <Label fx:id="lbl_phone" styleClass="label1" text="lblpasswordreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>
@@ -87,7 +87,7 @@
          </padding>
       </Label>
       <TextField fx:id="tf_email" layoutX="20.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-      <Label fx:id="lbl_email" text="lblmailreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
+      <Label fx:id="lbl_email" styleClass="label1" text="lblmailreg" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
          <font>
             <Font size="10.0" />
          </font>

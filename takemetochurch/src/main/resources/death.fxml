@@ -13,7 +13,7 @@
          <children>
             <Button fx:id="btn_back" layoutX="26.0" layoutY="22.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
             <Label layoutX="23.0" layoutY="72.0" text="What do you want to do with your body when you die?" />
-            <ChoiceBox fx:id="bodyDestiny" layoutX="23.0" layoutY="104.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="bodyDestiny" layoutX="23.0" layoutY="104.0" prefWidth="150.0" style="-fx-background-color: transparent" />
             <Label layoutX="23.0" layoutY="157.0" text="Where do you want to have your funeral or memorial service?" />
             <TextField fx:id="location" layoutX="26.0" layoutY="192.0" prefHeight="27.0" prefWidth="536.0" />
             <Label layoutX="23.0" layoutY="246.0" text="Who would like to officiate your funeral or memorial service?" />

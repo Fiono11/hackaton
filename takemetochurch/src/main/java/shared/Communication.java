@@ -22,7 +22,7 @@ public class Communication {
     public void openStreams() {
         try {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            //objectInputStream = new ObjectInputStream(socket.getInputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Comunication fudeu");
