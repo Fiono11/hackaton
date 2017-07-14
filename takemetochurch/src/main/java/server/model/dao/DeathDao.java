@@ -1,5 +1,6 @@
 package server.model.dao;
 
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -61,7 +62,7 @@ public class DeathDao implements Dao<Death> {
             session.delete(data);
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to delete");
+            throw new TransactionException("Was impossible to deleteById");
         }
     }
 

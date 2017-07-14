@@ -12,6 +12,8 @@ import shared.Communication;
 import shared.Message;
 import shared.MessageType;
 import shared.Values;
+import javafx.scene.layout.GridPane;
+
 
 import java.net.URL;
 import java.util.HashMap;
@@ -41,6 +43,9 @@ public class LoginController implements Initializable {
     @FXML
     private Label lbl_logininfo;
 
+    @FXML
+    private GridPane back_login;
+
     private Communication communication;
 
     @Override
@@ -50,33 +55,32 @@ public class LoginController implements Initializable {
 
     @FXML
     void onLogin(ActionEvent event) {
-        Verification.cleanLoginMsg(lbl_username, lbl_password);
+        Verification.cleanLoginMsg(lbl_username, lbl_password, lbl_logininfo);
+
 
         if (!emptyField()) {
 
-            // TODO: 13/07/17 filled fields send message
-
             lbl_logininfo.setVisible(false);
+            Map<String, String> map = new HashMap<>();
+
+            map.put(Values.USERNAME, tf_username.getText());
+            map.put(Values.PASSWORD, tf_password.getText());
+
+            Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
+            System.out.println(message);
+            communication.write(message);
+            System.out.println("message "+ message);
+
+            Message input = communication.read();
+
+            System.out.println(input);
+            if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
+                Navigation.getInstance().loadScreen("menu");
+                return;
+            }
+            // TODO: 14/07/17 wrong credentials
+
         }
-
-        Map<String, String> map = new HashMap<>();
-
-        map.put(Values.USERNAME, lbl_username.getText());
-        map.put(Values.PASSWORD, lbl_password.getText());
-
-        Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
-        System.out.println(message);
-        communication.write(message);
-        Navigation.getInstance().loadScreen("menu");
-        //communication.read();
-
-        //Message input = communication.read();
-
-        /*if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
-            Navigation.getInstance().loadScreen("menu");
-        }*/
-
-        playSound();
     }
 
     @FXML
@@ -89,18 +93,19 @@ public class LoginController implements Initializable {
 
         if (tf_username.getText().length() == 0) {
 
-            setText(lbl_username, "(*Required Field)");
+            setText(lbl_username, "(*Required Field)   ");
+
             fieldEmpty = true;
         }
         if (tf_password.getText().length() == 0) {
 
-            setText(lbl_password, "(*Required Field)");
+            setText(lbl_password, "(*Required Field)   ");
             fieldEmpty = true;
         }
         return fieldEmpty;
     }
 
-    private <T extends Labeled> void setText(T type, String message){
+    private <T extends Labeled> void setText(T type, String message) {
         type.setText(message);
         type.setVisible(true);
     }
