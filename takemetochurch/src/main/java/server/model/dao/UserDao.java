@@ -79,6 +79,22 @@ public class UserDao implements Dao<User> {
         return user;
     }
 
+    @Override
+    public User finById(Long id) throws TransactionException {
+        User user;
+
+        try {
+            Session session = getSession();
+            user = (User)session.createCriteria(User.class).add(Restrictions.
+                    like("id", id)).uniqueResult();
+
+
+        } catch (HibernateException e) {
+            throw new TransactionException("Was impossible to find by id");
+        }
+        return user;
+    }
+
     private Session getSession() {
         return HibernateSessionManager.getInstance().getSession();
     }

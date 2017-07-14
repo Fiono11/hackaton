@@ -3,7 +3,7 @@ package server.model;
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class Life {
+public class Life implements Data{
 
     private long id;
 

@@ -12,4 +12,6 @@ public interface Dao<T> {
     void update(T data);
 
     void delete(T data);
+
+    T finById(Long id);
 }

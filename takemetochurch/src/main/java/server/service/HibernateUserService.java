@@ -1,7 +1,11 @@
 package server.service;
 
 
+import server.model.Data;
 import server.model.User;
+import server.model.dao.Dao;
+import server.model.dao.DeathDao;
+import server.model.dao.LifeDao;
 import server.model.dao.UserDao;
 import server.persistence.TransactionException;
 import server.persistence.hibernate.HibernateTransactionManager;
@@ -11,16 +15,21 @@ import server.persistence.hibernate.HibernateTransactionManager;
  */
 public class HibernateUserService implements UserService{
 
+    private LifeDao lifeDao;
+    private DeathDao deathDao;
     private UserDao userDao;
     private HibernateTransactionManager transactionManager;
 
-    public HibernateUserService(UserDao userDao, HibernateTransactionManager transactionManager) {
-        this.userDao = userDao;
-        this.transactionManager = transactionManager;
+    public HibernateUserService() {
+
+        this.lifeDao = new LifeDao();
+        this.userDao = new UserDao();
+        this.deathDao = new DeathDao();
+        this.transactionManager = new HibernateTransactionManager();
     }
 
     @Override
-    public boolean authenticate(String username, String password) {
+    public boolean authenticate(Class<? extends Dao> T, String username, String password) {
 
         User user = findByName(username);
         if (user != null && user.getPassword().equals(password)) {
@@ -30,8 +39,7 @@ public class HibernateUserService implements UserService{
     }
 
     @Override
-    public void addUser(User user) {
-
+    public <E extends Data> void addUser(Class<? extends Dao> T, User user) {
         try {
             transactionManager.transaction();
             userDao.create(user);
@@ -61,7 +69,14 @@ public class HibernateUserService implements UserService{
     }
 
     @Override
-    public String getName() {
-        return UserService.class.getSimpleName();
+    public <E extends Data> E findById(int number) {
+        return null;
     }
+
+    @Override
+    public <E extends Data> void removeUSer(Class<? extends Dao> T, E data) {
+
+    }
+
+
 }

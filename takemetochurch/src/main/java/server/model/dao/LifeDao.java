@@ -3,6 +3,7 @@ package server.model.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+
 import server.model.Life;
 import server.persistence.TransactionException;
 import server.persistence.hibernate.HibernateSessionManager;
@@ -63,6 +64,22 @@ public class LifeDao implements Dao<Life> {
         } catch (HibernateException e) {
             throw new TransactionException("Was impossible to delete");
         }
+    }
+
+    @Override
+    public Life finById(Long id) throws TransactionException {
+        Life life;
+
+        try {
+            Session session = getSession();
+            life = (Life)session.createCriteria(Life.class).add(Restrictions.
+                    like("id", id)).uniqueResult();
+
+
+        } catch (HibernateException e) {
+            throw new TransactionException("Was impossible to find by id");
+        }
+        return life;
     }
 
     private Session getSession() {

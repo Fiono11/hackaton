@@ -14,6 +14,7 @@ public class DeathDao implements Dao<Death> {
 
     @Override
     public void create(Death data) {
+
         try {
 
             Session session = getSession();
@@ -42,6 +43,7 @@ public class DeathDao implements Dao<Death> {
 
     @Override
     public void update(Death data) {
+
         try {
             Session session = getSession();
             session.update(data);
@@ -53,6 +55,7 @@ public class DeathDao implements Dao<Death> {
 
     @Override
     public void delete(Death data) {
+
         try {
             Session session = getSession();
             session.delete(data);
@@ -60,8 +63,22 @@ public class DeathDao implements Dao<Death> {
         } catch (HibernateException e) {
             throw new TransactionException("Was impossible to delete");
         }
+    }
+
+    @Override
+    public Death finById(Long id) throws TransactionException {
+        Death death;
+
+        try {
+            Session session = getSession();
+            death = (Death)session.createCriteria(Death.class).add(Restrictions.
+                    like("id", id)).uniqueResult();
 
 
+        } catch (HibernateException e) {
+            throw new TransactionException("Was impossible to find by id");
+        }
+        return death;
     }
 
     private Session getSession() {

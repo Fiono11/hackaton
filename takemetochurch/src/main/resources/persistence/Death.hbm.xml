@@ -14,7 +14,7 @@
         <property name="music" type="string" column="music"/>
         <property name="religion" type="string" column="religion"/>
         <property name="numberOfGuests" type="integer" column="numberofguests"/>
-        <property name="budget" type="integer" column="buget"/>
+        <property name="budget" type="integer" column="budget"/>
 
     </class>
 </hibernate-mapping>
