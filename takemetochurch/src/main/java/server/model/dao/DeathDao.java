@@ -66,12 +66,12 @@ public class DeathDao implements Dao<Death> {
     }
 
     @Override
-    public Death finById(Long id) throws TransactionException {
+    public Death findById(Long id) throws TransactionException {
         Death death;
 
         try {
             Session session = getSession();
-            death = (Death)session.createCriteria(Death.class).add(Restrictions.
+            death = (Death) session.createCriteria(Death.class).add(Restrictions.
                     like("id", id)).uniqueResult();
 
 

@@ -2,7 +2,7 @@ package server;
 
 import server.model.User;
 import server.model.dao.UserDao;
-import server.service.UserService;
+import server.service.HibernateUserService;
 import shared.MessageType;
 import shared.Values;
 
@@ -13,19 +13,22 @@ import java.util.HashMap;
  */
 public class Strategy {
 
-    private UserService userService;
+    private HibernateUserService userService;
     private MessageType type;
 
-    public Strategy(MessageType type, UserService userService) {
+    public Strategy(MessageType type, HibernateUserService hibernateUserService) {
         this.type = type;
-        this.userService = userService;
+        this.userService = hibernateUserService;
     }
 
     void action(HashMap<String,String> map){
 
         switch (type){
             case LOGIN:
-                userService.authenticate(UserDao.class, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+                boolean b = userService.authenticate(UserDao.class, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+                if (b == true){
+
+                }
                 break;
             case REGISTRY:
                 String username = map.get(Values.USERNAME);
@@ -35,7 +38,7 @@ public class Strategy {
                 String email = map.get(Values.EMAIL);
 
                 User user = new User(username, firstName,lastName, password, email);
-                userService.addUser(UserDao.class, user);
+                userService.addData(Values.USERDAO,user);
                 break;
             //TODO add the other cases
         }

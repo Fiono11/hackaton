@@ -9,5 +9,6 @@ public enum MessageType {
     REGISTRY,
     LIFE_TEXT,
     LIFE_BOOLEAN,
-    DEATH
+    DEATH,
+    SHUTDOWN
 }

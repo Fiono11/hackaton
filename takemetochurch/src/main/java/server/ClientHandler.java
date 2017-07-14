@@ -4,7 +4,6 @@ import shared.Communication;
 import shared.Message;
 
 import java.net.Socket;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Created by codecadet on 13/07/17.
@@ -23,19 +22,12 @@ public class ClientHandler implements Runnable {
     public void run() {
 
         communication.openStreams();
-        authentification();
-
         readClient();
-
         communication.close();
 
     }
 
     private void readClient() {
-
-    }
-
-    private void authentification() {
 
         boolean logged = false;
         Message message = null;

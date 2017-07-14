@@ -1,6 +1,6 @@
 package server;
 
-import server.service.UserService;
+import server.service.HibernateUserService;
 import shared.MessageType;
 
 import java.util.HashMap;
@@ -8,13 +8,13 @@ import java.util.HashMap;
 /**
  * Created by codecadet on 13/07/17.
  */
-public class Task {
+public class Task implements Runnable{
 
     private Strategy strategy;
     private HashMap<String,String> content;
 
-    public Task(HashMap<String, String> content, MessageType type, UserService userService) {
-        strategy = new Strategy(type,userService);
+    public Task(HashMap<String, String> content, MessageType type, HibernateUserService hibernateUserService) {
+        strategy = new Strategy(type,hibernateUserService);
         this.content = content;
     }
 
@@ -28,7 +28,10 @@ public class Task {
 
     public void setUpStrategy(MessageType type) {
 
+    }
 
-
+    @Override
+    public void run() {
+        strategy.action(content);
     }
 }

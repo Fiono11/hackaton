@@ -3,7 +3,7 @@ package server.model;
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class Death implements Data{
+public class Death implements Data {
 
     private long id;
 
@@ -14,7 +14,7 @@ public class Death implements Data{
     private int numberOfGuests;
     private int budget;
 
-    public Death(){
+    public Death() {
     }
 
     public Death(String ceremony, String bodyTreatment, String music, int numberOfGuests, String religion, int budget) {

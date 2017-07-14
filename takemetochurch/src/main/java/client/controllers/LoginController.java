@@ -65,8 +65,14 @@ public class LoginController implements Initializable {
         Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
         System.out.println(message);
         communication.write(message);
-        Navigation.getInstance().loadScreen("menu");
+        //Navigation.getInstance().loadScreen("menu");
         //communication.read();
+
+        Message input = communication.read();
+
+        if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
+            Navigation.getInstance().loadScreen("menu");
+        }
     }
 
     @FXML

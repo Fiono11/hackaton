@@ -3,7 +3,7 @@ package server.model;
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class Life implements Data{
+public class Life implements Data {
 
     private long id;
 
@@ -13,7 +13,7 @@ public class Life implements Data{
 
     }
 
-    public Life( String message) {
+    public Life(String message) {
         this.message = message;
     }
 

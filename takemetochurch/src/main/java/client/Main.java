@@ -7,9 +7,10 @@ import server.model.dao.UserDao;
 import shared.Communication;
 import shared.Values;
 import server.model.Death;
+import server.model.Life;
 import server.model.User;
-import server.persistence.hibernate.HibernateTransactionManager;
 import server.service.HibernateUserService;
+import shared.Values;
 
 import java.net.Socket;
 
