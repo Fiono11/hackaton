@@ -4,16 +4,17 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class>
+    <class name="server.model.Death" table="death">
         <id name="id" type="long" column="id">
             <generator class="identity"/>
         </id>
 
-        <property name="ceremony" type="string" column="cereminy"/>
-        <property name="bodytreatment" type="string" column="bodytreatment"/>
+        <property name="ceremony" type="string" column="ceremony"/>
+        <property name="bodyTreatment" type="string" column="bodytreatment"/>
         <property name="music" type="string" column="music"/>
-        <property name="numberofguests" type="integer" column="numberofguests"/>
         <property name="religion" type="string" column="religion"/>
-        <property name="budget" type="string" column="buget"/>
+        <property name="numberOfGuests" type="integer" column="numberofguests"/>
+        <property name="budget" type="integer" column="budget"/>
 
     </class>
+</hibernate-mapping>

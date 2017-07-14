@@ -83,8 +83,8 @@ public class RegisterController implements Initializable {
             map.put(Values.USERNAME, tf_username.getText());
             map.put(Values.PASSWORD, tf_password.getText());
             map.put(Values.EMAIL, tf_email.getText());
-            map.put(Values.FIRSTNAME, tf_firstname.getText());
-            map.put(Values.LASTNAME, tf_lastname.getText());
+            map.put(Values.FIRST_NAME, tf_firstname.getText());
+            map.put(Values.LAST_NAME, tf_lastname.getText());
             Message message = new Message(MessageType.REGISTRY, (HashMap<String, String>) map);
             Navigation.getInstance().getCommunication().write(message);
         }

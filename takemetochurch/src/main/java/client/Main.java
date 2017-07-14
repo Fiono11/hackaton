@@ -2,8 +2,14 @@ package client;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import server.model.Life;
+import server.model.dao.UserDao;
 import shared.Communication;
 import shared.Values;
+import server.model.Death;
+import server.model.User;
+import server.persistence.hibernate.HibernateTransactionManager;
+import server.service.HibernateUserService;
 
 import java.net.Socket;
 

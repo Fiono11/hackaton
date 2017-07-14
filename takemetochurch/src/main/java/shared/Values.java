@@ -10,8 +10,8 @@ public class Values {
     public static final String IP = "localhost";
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
-    public static final String FIRSTNAME = "firstname";
-    public static final String LASTNAME = "lastname";
+    public static final String FIRST_NAME = "firstname";
+    public static final String LAST_NAME = "lastname";
     public static final String EMAIL = "email";
     public static final String TODO_1 = "todo_1";
     public static final String TODO_2 = "todo_2";

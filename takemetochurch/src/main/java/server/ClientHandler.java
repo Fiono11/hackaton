@@ -12,11 +12,11 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class ClientHandler implements Runnable {
 
     private Communication communication;
-    private ConcurrentLinkedQueue<Task> taskQueue;
+    private Server server;
 
-    public ClientHandler(Socket clientSocket, ConcurrentLinkedQueue<Task> taskQueue) {
+    public ClientHandler(Socket clientSocket, Server server) {
         this.communication = new Communication(clientSocket);
-        this.taskQueue = taskQueue;
+        this.server = server;
     }
 
     @Override
@@ -44,14 +44,9 @@ public class ClientHandler implements Runnable {
 
             message = communication.read();
 
-            switch (message.getType()){
-
-                case LOGIN:
-                    Task task = new Task(message.getType(),message.getMapContent());
-                    break;
-                case REGISTRY:
-                    break;
-            }
+            Task task = new Task(message.getMapContent(), message.getType(),server.getHibernateUserService());
+            task.setUpStrategy(message.getType());
+            server.getTaskQueue().add(task);
 
         }
 

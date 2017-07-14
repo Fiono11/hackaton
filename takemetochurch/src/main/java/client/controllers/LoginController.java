@@ -59,13 +59,12 @@ public class LoginController implements Initializable {
 
         Map<String, String> map = new HashMap<>();
 
-        Navigation.getInstance().loadScreen("menu");
         map.put(Values.USERNAME, lbl_username.getText());
         map.put(Values.PASSWORD, lbl_password.getText());
 
         Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
         System.out.println(message);
-        Navigation.getInstance().getCommunication().write(message);
+        communication.write(message);
     }
 
     @FXML

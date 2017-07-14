@@ -3,7 +3,7 @@ package server.model;
 /**
  * Created by Cyrille on 13/07/17.
  */
-public class User {
+public class User implements Data{
 
     private long id;
     private String username;
@@ -12,10 +12,13 @@ public class User {
     private String email;
     private String password;
 
+    private Death death;
+    private Life life;
+
     public User() {
     }
 
-    public User(String username, String firstName, String lastName, String password,  String email) {
+    public User(String username, String firstName, String lastName, String password, String email) {
         this.username = username;
         this.lastName = lastName;
         this.password = password;
@@ -69,5 +72,21 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Death getDeath() {
+        return death;
+    }
+
+    public void setDeath(Death death) {
+        this.death = death;
+    }
+
+    public Life getLife() {
+        return life;
+    }
+
+    public void setLife(Life life) {
+        this.life = life;
     }
 }
