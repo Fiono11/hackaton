@@ -20,12 +20,21 @@ public class Communication {
 
     public void openStreams() {
         try {
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Comunication fudeu");
         }
+    }
+
+    public void write(Message message) {
+        try {
+            objectOutputStream.writeObject(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(message);
     }
 
 
