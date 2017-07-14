@@ -13,6 +13,7 @@ public class Communication {
     private ObjectInputStream objectInputStream;
     private ObjectOutputStream objectOutputStream;
     private Socket socket;
+    private String name;
 
     public Communication(Socket socket) {
         this.socket = socket;
@@ -71,4 +72,11 @@ public class Communication {
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

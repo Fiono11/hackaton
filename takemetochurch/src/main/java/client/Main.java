@@ -22,7 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Communication communication = new Communication(new Socket(Values.IP, Values.PORT));
-        communication.openStreams();
+         communication.openStreams();
         Navigation.getInstance().setCommunication(communication);
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");

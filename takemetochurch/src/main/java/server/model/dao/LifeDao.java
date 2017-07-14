@@ -1,9 +1,11 @@
 package server.model.dao;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import server.Server;
 import server.model.Life;
 import server.persistence.TransactionException;
 import server.persistence.hibernate.HibernateSessionManager;
@@ -56,13 +58,27 @@ public class LifeDao implements Dao<Life> {
 
     @Override
     public void delete(Life data) {
+        try {
+        Session session = getSession();
+        session.delete(data);
+
+        }catch (HibernateException e){
+            throw new TransactionException("Delete Impossibru");
+        }
+    }
+
+
+    public void deleteById(int id) {
 
         try {
             Session session = getSession();
-            session.delete(data);
+            Query query = session.createQuery("delete from Life where id = ?");
+            query.setLong(0, (long)id);
+            query.executeUpdate();
+
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to delete");
+            throw new TransactionException("Was impossible to deleteById");
         }
     }
 
@@ -72,8 +88,7 @@ public class LifeDao implements Dao<Life> {
 
         try {
             Session session = getSession();
-            life = (Life) session.createCriteria(Life.class).add(Restrictions.
-                    like("id", id)).uniqueResult();
+            life = (Life) session.createCriteria(Life.class).add(Restrictions.like("id", id)).uniqueResult();
 
 
         } catch (HibernateException e) {

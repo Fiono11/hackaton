@@ -43,25 +43,7 @@ public class Server {
 
         ExecutorService cachedPool = Executors.newCachedThreadPool();
 
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
 
-                ExecutorService fixedPool = Executors.newFixedThreadPool(10);
-
-                while (true){
-
-                    if (!taskQueue.isEmpty()){
-                        //TODO: to stop this thread, just create a shutdown task.
-                        fixedPool.submit(taskQueue.poll());
-                    }
-
-                }
-
-            }
-        };
-
-        runnable.run();
 
         while (true) {
 
