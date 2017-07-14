@@ -197,7 +197,7 @@ public class LifeController implements Initializable {
         toDos.add("Whale Watching");
         toDos.add("Read Terms and Conditions");
         toDos.add("Play the Cookie Game");
-        toDos.add("Be on a TV Show");
+        toDos.add("Beat up Fazenda");
         toDos.add("Masturbate in Public");
         toDos.add("Punch Donald Trump");
         toDos.add("Overdose on Marijuana");
