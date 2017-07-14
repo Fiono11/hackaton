@@ -15,6 +15,7 @@
         <property name="religion" type="string" column="religion"/>
         <property name="numberOfGuests" type="integer" column="numberofguests"/>
         <property name="budget" type="integer" column="budget"/>
+        <property name="specialRequest" type="string" column="specialrequest"/>
 
     </class>
 </hibernate-mapping>

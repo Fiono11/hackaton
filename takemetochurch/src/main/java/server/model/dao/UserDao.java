@@ -61,7 +61,7 @@ public class UserDao implements Dao<User> {
             session.delete(data);
 
         } catch (HibernateException e) {
-            throw new TransactionException("Was impossible to delete");
+            throw new TransactionException("Was impossible to deleteById");
         }
     }
 

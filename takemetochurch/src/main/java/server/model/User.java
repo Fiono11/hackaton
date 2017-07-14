@@ -11,7 +11,7 @@ public class User implements Data {
     private String lastName;
     private String email;
     private String password;
-
+    private String phoneNumber;
     private Death death;
     private Life life;
 
@@ -88,5 +88,13 @@ public class User implements Data {
 
     public void setLife(Life life) {
         this.life = life;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

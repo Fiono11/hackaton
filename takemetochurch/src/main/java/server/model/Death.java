@@ -6,11 +6,11 @@ package server.model;
 public class Death implements Data {
 
     private long id;
-
     private String ceremony;
     private String bodyTreatment;
     private String music;
     private String religion;
+    private String specialRequest;
     private int numberOfGuests;
     private int budget;
 
@@ -80,5 +80,13 @@ public class Death implements Data {
 
     public void setBudget(int budget) {
         this.budget = budget;
+    }
+
+    public String getSpecialRequest() {
+        return specialRequest;
+    }
+
+    public void setSpecialRequest(String specialRequest) {
+        this.specialRequest = specialRequest;
     }
 }

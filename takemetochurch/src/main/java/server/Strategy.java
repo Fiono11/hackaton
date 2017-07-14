@@ -1,8 +1,11 @@
 package server;
 
+import server.model.Death;
+import server.model.Life;
 import server.model.User;
-import server.model.dao.UserDao;
 import server.service.HibernateUserService;
+import shared.Communication;
+import shared.Message;
 import shared.MessageType;
 import shared.Values;
 
@@ -21,15 +24,26 @@ public class Strategy {
         this.userService = hibernateUserService;
     }
 
-    void action(HashMap<String,String> map){
+    void action(HashMap<String, String> map, Communication communication) {
 
-        switch (type){
+
+        System.out.println(map);
+
+        switch (type) {
             case LOGIN:
-                boolean b = userService.authenticate(UserDao.class, map.get(Values.USERNAME), map.get(Values.PASSWORD));
-                if (b == true){
+                boolean b = userService.authenticate(Values.USERDAO, map.get(Values.USERNAME), map.get(Values.PASSWORD));
 
+                HashMap<String, String> map1 = new HashMap<>();
+                if (b == true) {
+                    map1.put(Values.RESPONSE, Values.OK);
+                    communication.setName(map.get(Values.USERNAME));
+                } else {
+                    map1.put(Values.RESPONSE, Values.NOT_OK);
                 }
+                Message message = new Message(type, map1);
+                communication.write(message);
                 break;
+
             case REGISTRY:
                 String username = map.get(Values.USERNAME);
                 String password = map.get(Values.PASSWORD);
@@ -37,11 +51,121 @@ public class Strategy {
                 String lastName = map.get(Values.LAST_NAME);
                 String email = map.get(Values.EMAIL);
 
-                User user = new User(username, firstName,lastName, password, email);
-                userService.addData(Values.USERDAO,user);
+                User user = new User(username, firstName, lastName, password, email);
+                userService.addData(Values.USERDAO, user);
+
+                boolean a = userService.authenticate(Values.USERDAO, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+                HashMap<String, String> map2 = new HashMap<>();
+                if (a == true) {
+                    map2.put(Values.RESPONSE, Values.OK);
+                } else {
+                    map2.put(Values.RESPONSE, Values.NOT_OK);
+                }
+                Message message1 = new Message(type, map2);
+                communication.write(message1);
+                break;
+            case LIFE_C:
+                Life life = creatLife(map);
+                userService.addData(Values.LIFEDAO,life);
+                break;
+            case LIFE_R:
+                Life life1 = userService.getLife(communication.getName());
+                Message message2 = createLifeMessage(life1);
+                communication.write(message2);
+                break;
+            case LIFE_U:
+                Life life2 = creatLife(map);
+                userService.updateData(Values.LIFEDAO,life2);
+                break;
+            case LIFE_D:
+                Life life3 = userService.getLife(communication.getName());
+                userService.removeData(Values.LIFEDAO,life3);
+                break;
+            case DEATH_C:
+                System.out.println("death_c");
+                Death death = creatDeath(map);
+                System.out.println("death " + death.toString());
+                userService.addData(Values.DEATHDAO,death);
+                break;
+            case DEATH_R:
+                Death death1 = userService.getDeath(communication.getName());
+                Message message3 = createDeathMessage(death1);
+                communication.write(message3);
+                break;
+            case DEATH_U:
+                System.out.println("death_u");
+                Death death2 = creatDeath(map);
+                System.out.println("abc");
+                System.out.println("death " + death2.toString());
+                userService.updateData(Values.DEATHDAO,death2);
+                break;
+            case DEATH_D:
+                Death death3 = userService.getDeath(communication.getName());
+                userService.removeData(Values.DEATHDAO,death3);
                 break;
             //TODO add the other cases
         }
+
+    }
+
+    private Message createDeathMessage(Death death1) {
+        HashMap<String,String> map = new HashMap<>();
+
+        if(death1 != null){
+
+
+        map.put(Values.CEREMONY,death1.getCeremony());
+        map.put(Values.BODYTREAMENT,death1.getBodyTreatment());
+        map.put(Values.MUSIC,death1.getMusic());
+        map.put(Values.RELIGION,death1.getReligion());
+        map.put(Values.NUMBEROFGUESTS,Integer.toString(death1.getNumberOfGuests()));
+        map.put(Values.BUDGET,Integer.toString(death1.getBudget()));
+        }
+
+        return new Message(type,map);
+    }
+
+    private Death creatDeath(HashMap<String, String> map) {
+        String[] prop = new String[map.size()];
+        int i = 0;
+
+        for (String s:map.keySet()) {
+            prop[i] = map.get(s);
+            i++;
+        }
+
+        Death death = new Death(prop[0], prop[1], prop[2], Integer.parseInt(prop[3]), prop[4], Integer.parseInt(prop[5]));
+        return death;
+
+    }
+
+    private Life creatLife(HashMap<String, String> map) {
+        String[] prop = new String[map.size()];
+        int i = 0;
+
+        for (String s:map.keySet()) {
+            prop[i] = map.get(s);
+            i++;
+        }
+
+        Life life = new Life(prop[0], prop[1], prop[2], prop[3], prop[4], prop[5], prop[6], prop[7], prop[8] );
+        return life;
+    }
+
+    private Message createLifeMessage(Life life1) {
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put(Values.P1,life1.getProp1());
+        map.put(Values.P2,life1.getProp2());
+        map.put(Values.P3,life1.getProp3());
+        map.put(Values.P4,life1.getProp4());
+        map.put(Values.P5,life1.getProp5());
+        map.put(Values.P6,life1.getProp6());
+        map.put(Values.P7,life1.getProp7());
+        map.put(Values.P8,life1.getProp8());
+        map.put(Values.P9,life1.getProp9());
+
+        return new Message(type,map);
 
     }
 }

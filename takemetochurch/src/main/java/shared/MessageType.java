@@ -7,7 +7,13 @@ public enum MessageType {
 
     LOGIN,
     REGISTRY,
-    LIFE,
-    DEATH,
-    SHUTDOWN
+    LIFE_C,
+    LIFE_R,
+    LIFE_U,
+    LIFE_D,
+    DEATH_C,
+    DEATH_R,
+    DEATH_U,
+    DEATH_D,
+
 }
