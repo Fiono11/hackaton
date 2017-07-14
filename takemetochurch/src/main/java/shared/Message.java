@@ -23,4 +23,12 @@ public class Message implements Serializable{
     public HashMap<String, String> getMapContent() {
         return mapContent;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "type=" + type +
+                ", mapContent=" + mapContent +
+                '}';
+    }
 }

@@ -1,10 +1,14 @@
 package server.service;
 
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import server.model.Data;
 import server.model.Death;
 import server.model.Life;
 import server.model.User;
-import server.model.dao.Dao;
 import server.model.dao.DeathDao;
 import server.model.dao.LifeDao;
 import server.model.dao.UserDao;
@@ -30,16 +34,20 @@ public class HibernateUserService {
         this.transactionManager = new HibernateTransactionManager();
     }
 
-    public boolean authenticate(Class<? extends Dao> T, String username, String password) {
+    public boolean authenticate(String daoType, String username, String password) {
 
         User user = findByName(username);
         if (user != null && user.getPassword().equals(password)) {
+            //System.out.println("estou auth");
             return true;
         }
         return false;
     }
 
     public <T extends Data> void addData(String daoName, T data) {
+
+        System.out.println("im in userservice");
+        System.out.println(data);
         try {
             transactionManager.transaction();
 
@@ -68,7 +76,6 @@ public class HibernateUserService {
 
     public User findByName(String username) {
         User user = null;
-
         try {
             transactionManager.transaction();
             user = userDao.findByName(username);
@@ -78,16 +85,26 @@ public class HibernateUserService {
             transactionManager.rollback();
             e.printStackTrace();
         }
-
         return user;
     }
 
-    public <T extends Data> T findById(int number) {
+    public <T extends Data> T findById(String daoName, int number) {
         Data data = null;
 
         try {
             transactionManager.transaction();
-            data = userDao.findById((long) number);
+            switch (daoName){
+                case Values.USERDAO:
+                    data = userDao.findById((long) number);
+                    break;
+                case Values.DEATHDAO:
+                    data = deathDao.findById((long) number);
+                    break;
+
+                case Values.LIFEDAO:
+                    data = lifeDao.findById((long) number);
+                    break;
+            }
             transactionManager.commit();
 
         } catch (TransactionException e) {
@@ -121,5 +138,67 @@ public class HibernateUserService {
             transactionManager.rollback();
             e.printStackTrace();
         }
+    }
+
+    public <T extends Data> void updateData(String daoName, T data) {
+
+        try {
+            transactionManager.transaction();
+            switch (daoName) {
+                case Values.USERDAO:
+                    userDao.update((User) data);
+                    transactionManager.commit();
+                    break;
+
+                case Values.DEATHDAO:
+                    deathDao.update((Death) data);
+                    transactionManager.commit();
+                    break;
+
+                case Values.LIFEDAO:
+                    lifeDao.update((Life) data);
+                    transactionManager.commit();
+                    break;
+            }
+        } catch (TransactionException e) {
+            transactionManager.rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public Life getLife(String name) {
+        Life life = null;
+        try {
+
+        transactionManager.transaction();
+
+        User user = userDao.findByName(name);
+
+        life = user.getLife();
+
+        transactionManager.commit();
+        }catch (TransactionException e){
+            transactionManager.rollback();
+        }
+
+        return life;
+    }
+
+    public Death getDeath(String name) {
+        Death death = null;
+        try {
+
+            transactionManager.transaction();
+
+            User user = userDao.findByName(name);
+
+            death = user.getDeath();
+
+            transactionManager.commit();
+        }catch (TransactionException e){
+            transactionManager.rollback();
+        }
+
+        return death;
     }
 }
