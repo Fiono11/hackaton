@@ -4,7 +4,9 @@ import client.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import utils.Verification;
+
 
 public class LoginController {
 
@@ -30,8 +32,12 @@ public class LoginController {
     private Label lbl_logininfo;
 
     @FXML
+    private GridPane back_login;
+
+    @FXML
     void onLogin(ActionEvent event) {
-        Verification.cleanLoginMsg(lbl_username, lbl_password);
+        Verification.cleanLoginMsg(lbl_username, lbl_password, lbl_logininfo);
+
 
         if (!emptyField()) {
 
@@ -53,12 +59,13 @@ public class LoginController {
 
         if (tf_username.getText().length() == 0) {
 
-            setText(lbl_username, "(*Required Field)");
+            setText(lbl_username, "(*Required Field)   ");
+
             fieldEmpty = true;
         }
         if (tf_password.getText().length() == 0) {
 
-            setText(lbl_password, "(*Required Field)");
+            setText(lbl_password, "(*Required Field)   ");
             fieldEmpty = true;
         }
         return fieldEmpty;

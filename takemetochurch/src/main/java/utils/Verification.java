@@ -9,18 +9,23 @@ import javafx.scene.control.TextField;
  */
 public class Verification {
 
-    public static void cleanRegisterMsg(Label lblUsernameError, Label lblPasswordError, Label lblFirstNameErrorReg, Label lblLastName, Label lblMailErrorReg) {
+    public static void cleanRegisterMsg(Label lblUsernameError, Label lblPasswordError, Label lblFirstNameErrorReg, Label lblLastName, Label lblPhoneNumber, Label lblMailErrorReg) {
 
         lblUsernameError.setVisible(false);
         lblPasswordError.setVisible(false);
         lblFirstNameErrorReg.setVisible(false);
-        lblMailErrorReg.setVisible(false);
         lblLastName.setVisible(false);
-    }
+        lblPhoneNumber.setVisible(false);
+        lblMailErrorReg.setVisible(false);
 
-    public static void cleanLoginMsg(Label lbl_username, Label lbl_password) {
+}
+
+    public static void cleanLoginMsg(Label lbl_username, Label lbl_password, Label lbl_info) {
+
         lbl_username.setVisible(false);
         lbl_password.setVisible(false);
+        lbl_info.setVisible(false);
+
     }
 
 
@@ -47,5 +52,17 @@ public class Verification {
         }
 
         return check;
+    }
+
+    public static boolean checkPhone(TextField tf_phone) {
+        boolean checkPhone = false;
+
+        if (tf_phone.getText().matches("9[1236]{1}[0-9]{7}")) {
+
+            checkPhone = true;
+        }
+
+        return checkPhone;
+
     }
 }

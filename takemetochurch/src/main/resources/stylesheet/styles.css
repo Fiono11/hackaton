@@ -1,11 +1,68 @@
+
+.Login{
+    -fx-background-image: url("/images/login.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 515;
+    -fx-background-position: center center;
+}
+
+.Register{
+    -fx-background-image: url("/images/login.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 515;
+    -fx-background-position: center center;
+}
+
+.Menu{
+    -fx-background-image: url("/images/menu.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 515;
+    -fx-background-position: center center;
+}
+
+.text-field{
+     -fx-opacity: 0.6;
+ }
+
+.label {
+    -fx-background-color: whitesmoke;
+}
+
 .button {
     -fx-background-color: #000000,
-    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#64d4ea, #2f4b8f),
     linear-gradient(#426ab7, #263e75),
-    linear-gradient(#395cab, #223768);
+    linear-gradient(#3854a1, #1a2850);
     -fx-background-insets: 0, 1, 2, 3;
     -fx-background-radius: 3, 2, 2, 2;
     -fx-padding: 5 10 5 10;
     -fx-text-fill: white;
     -fx-font-size: 12px;
+}
+
+.styl_btn_death {
+    -fx-background-color: #1c1c1c,
+    linear-gradient(#838387, #000000);
+    -fx-opacity: 0.8;
+    -fx-background-image: url("/images/Coffin.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 72 40;
+    -fx-background-position: center center;
+}
+
+.styl_btn_life {
+    -fx-background-color: #014009,
+    linear-gradient(#016e12, #002607);
+    -fx-opacity: 0.8;
+    -fx-background-image: url("/images/life.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 72 40;
+    -fx-background-position: center center;
+}
+
+.list {
+    -fx-background-image: url("/images/list.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 580 380;
+    -fx-background-position: center center;
 }
