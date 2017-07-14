@@ -25,7 +25,10 @@ public class Strategy {
 
         switch (type){
             case LOGIN:
-                userService.authenticate(UserDao.class, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+                boolean b = userService.authenticate(UserDao.class, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+                if (b == true){
+
+                }
                 break;
             case REGISTRY:
                 String username = map.get(Values.USERNAME);

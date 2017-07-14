@@ -1,40 +1,32 @@
+package client;
 
-
-import client.Navigation;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import server.model.Life;
+import server.model.dao.UserDao;
+import shared.Communication;
+import shared.Values;
 import server.model.Death;
 import server.model.Life;
 import server.model.User;
 import server.service.HibernateUserService;
 import shared.Values;
 
+import java.net.Socket;
+
 /**
  * Created by Cyrille on 13/07/17.
  */
 public class Main extends Application {
 
-    public void init(){
-        HibernateUserService hibernateUserService = new HibernateUserService();
-
-        Death death = new Death("sim","sim","sim",10,"sim",1000);
-
-        Life life = new Life("oi");
-        User user = new User("cyrokasss", "cyrillessss", "feijo", "123456", "asddf@asdf.com");
-
-        user.setDeath(death);
-        user.setLife(life);
-
-
-        hibernateUserService.addData(Values.USERDAO,user);
-
-    }
-
-
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Communication communication = new Communication(new Socket(Values.IP, Values.PORT));
+        communication.openStreams();
+        Navigation.getInstance().setCommunication(communication);
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");
+        System.out.println(communication);
     }
 
     public static void main(String[] args) {

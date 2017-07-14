@@ -7,8 +7,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import client.utils.Verification;
+import shared.Message;
+import shared.MessageType;
+import shared.Values;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
@@ -74,14 +79,15 @@ public class RegisterController implements Initializable {
         Verification.cleanRegisterMsg(lb_username_reg, lb_password_reg, lb_firstname, lb_lastname, lb_email);
 
         if (!emptyField()) {
-            checkEmail = Verification.checkEmail(tf_email);
-
-            if (!checkEmail) {
-                setText(lb_email, "(* Invalid email)");
-            }
+            Map<String, String> map = new HashMap<>();
+            map.put(Values.USERNAME, tf_username.getText());
+            map.put(Values.PASSWORD, tf_password.getText());
+            map.put(Values.EMAIL, tf_email.getText());
+            map.put(Values.FIRST_NAME, tf_firstname.getText());
+            map.put(Values.LAST_NAME, tf_lastname.getText());
+            Message message = new Message(MessageType.REGISTRY, (HashMap<String, String>) map);
+            Navigation.getInstance().getCommunication().write(message);
         }
-
-        // pedir ao serviço para enviar o registo
     }
 
     private boolean emptyField() {

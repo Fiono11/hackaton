@@ -1,6 +1,7 @@
 package server;
 
 import server.service.HibernateUserService;
+import shared.MessageType;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -42,12 +43,34 @@ public class Server {
 
         ExecutorService cachedPool = Executors.newCachedThreadPool();
 
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+
+                ExecutorService fixedPool = Executors.newFixedThreadPool(10);
+
+                while (true){
+
+                    if (!taskQueue.isEmpty()){
+                        //TODO: to stop this thread, just create a shutdown task.
+                        fixedPool.submit(taskQueue.poll());
+                    }
+
+                }
+
+            }
+        };
+
+        runnable.run();
+
         while (true) {
 
             Socket clientSocket = serverSocket.accept();
             cachedPool.submit(new ClientHandler(clientSocket, this));
 
         }
+
+        //taskQueue.add(new Task(null, MessageType.SHUTDOWN, null));
 
     }
 

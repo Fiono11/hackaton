@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Created by codecadet on 13/07/17.
  */
-public class Task {
+public class Task implements Runnable{
 
     private Strategy strategy;
     private HashMap<String,String> content;
@@ -28,7 +28,10 @@ public class Task {
 
     public void setUpStrategy(MessageType type) {
 
+    }
 
-
+    @Override
+    public void run() {
+        strategy.action(content);
     }
 }
