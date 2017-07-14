@@ -135,8 +135,6 @@ public class RegisterController implements Initializable {
                 lb_username_reg.setText("Username already exists   ");
                 lb_username_reg.setVisible(true);
             }
-
-            //playSound();
         }
     }
 
@@ -181,9 +179,5 @@ public class RegisterController implements Initializable {
     private <T extends Labeled> void setText(T type, String message) {
         type.setText(message);
         type.setVisible(true);
-    }
-
-    private void playSound() {
-        new MediaPlayer(new Media(getClass().getResource("/sound/takemetochurch.mp3").toString())).play();
     }
 }

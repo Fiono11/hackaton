@@ -22,6 +22,7 @@ public class Death implements Data {
         this.bodyTreatment = bodyTreatment;
         this.music = music;
         this.numberOfGuests = numberOfGuests;
+        this.specialRequest = specialRequest;
         this.religion = religion;
         this.budget = budget;
     }

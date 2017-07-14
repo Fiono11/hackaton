@@ -15,24 +15,24 @@
          <children>
             <ImageView fitHeight="400.0" fitWidth="577.0">
                <image>
-                  <Image url="@../../../../../../4569102-green-hills-wallpapers.jpg" />
+                   <Image url="@/images/life_background.jpg" />
                </image>
             </ImageView>
             <Button fx:id="btn_back" layoutX="20.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="32.0" text="&lt;" />
             <Button fx:id="btn_generate_bucketlist" layoutX="421.0" layoutY="10.0" mnemonicParsing="false" onAction="#generateBucketList" text="Generate Bucketlist" />
             <Button fx:id="btn_submit" layoutX="264.0" layoutY="358.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-            <ListView fx:id="bucketList" layoutX="20.0" layoutY="57.0" prefHeight="271.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_1" layoutX="20.0" layoutY="57.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_2" layoutX="20.0" layoutY="84.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_3" layoutX="20.0" layoutY="111.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_4" layoutX="20.0" layoutY="138.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_5" layoutX="20.0" layoutY="165.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_6" layoutX="20.0" layoutY="192.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_7" layoutX="20.0" layoutY="219.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_8" layoutX="20.0" layoutY="246.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_9" layoutX="20.0" layoutY="273.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <TextField fx:id="toDo_10" layoutX="20.0" layoutY="300.0" opacity="0.74" prefHeight="27.0" prefWidth="499.0" />
-            <Label fx:id="submit_label" layoutX="272.0" layoutY="335.0" text="Label" visible="false"/>
+            <ListView fx:id="bucketList" layoutX="20.0" layoutY="56.0" opacity="0.7" prefHeight="272.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_1" layoutX="20.0" layoutY="57.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_2" layoutX="20.0" layoutY="84.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_3" layoutX="20.0" layoutY="111.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_4" layoutX="20.0" layoutY="138.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_5" layoutX="20.0" layoutY="165.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_6" layoutX="20.0" layoutY="192.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_7" layoutX="20.0" layoutY="219.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_8" layoutX="20.0" layoutY="246.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_9" layoutX="20.0" layoutY="273.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <TextField fx:id="toDo_10" layoutX="20.0" layoutY="300.0" opacity="0.74" prefHeight="27.0" prefWidth="540.0" />
+            <Label fx:id="submit_label" layoutX="272.0" layoutY="335.0" text="Label" visible="false" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

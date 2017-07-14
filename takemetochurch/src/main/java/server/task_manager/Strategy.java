@@ -50,8 +50,9 @@ public class Strategy {
                 String firstName = map.get(Values.FIRST_NAME);
                 String lastName = map.get(Values.LAST_NAME);
                 String email = map.get(Values.EMAIL);
+                String phone = map.get(Values.PHONE);
 
-                User user = new User(username, firstName, lastName, password, email);
+                User user = new User(username, firstName, lastName, phone, password, email);
                 userService.addData(Values.USERDAO, user);
 
                 boolean a = userService.authenticate(Values.USERDAO, map.get(Values.USERNAME), map.get(Values.PASSWORD));

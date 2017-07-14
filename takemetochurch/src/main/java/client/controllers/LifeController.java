@@ -162,7 +162,8 @@ public class LifeController implements Initializable {
     }
 
     public void addSound() {
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sound/drumroll.mp3").toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/drumroll.mp3").toString()));
+
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
@@ -182,6 +183,6 @@ public class LifeController implements Initializable {
     }
 
     public void addLifeSound() {
-        new MediaPlayer(new Media(getClass().getResource("/sound/life.mp3").toString())).play();
+        new MediaPlayer(new Media(getClass().getResource("/sounds/life.mp3").toString())).play();
     }
 }

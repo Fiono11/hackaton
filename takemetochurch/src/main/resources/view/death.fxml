@@ -9,26 +9,26 @@
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controllers.DeathController">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="719.0" prefWidth="575.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="600.0" styleClass="backgroundImage">
          <children>
             <Button fx:id="btn_back" layoutX="26.0" layoutY="22.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
-            <Label layoutX="23.0" layoutY="72.0" text="What do you want to do with your body when you die?" />
-            <ChoiceBox fx:id="bodyDestiny" layoutX="23.0" layoutY="104.0" prefWidth="150.0" style="-fx-background-color: transparent" />
-            <Label layoutX="23.0" layoutY="157.0" text="Where do you want to have your funeral or a memorial service?" />
+            <Label layoutX="23.0" layoutY="72.0" text="What do you want to do with your body when you die?" textFill="WHITE" />
+            <ChoiceBox fx:id="bodyDestiny" layoutX="23.0" layoutY="104.0" opacity="0.7" prefWidth="150.0" style="-fx-background-color: white;" />
+            <Label layoutX="23.0" layoutY="157.0" text="Where do you want to have your funeral or a memorial service?" textFill="WHITE" />
             <TextField fx:id="religious" layoutX="26.0" layoutY="184.0" prefHeight="27.0" prefWidth="536.0" />
-            <Label layoutX="23.0" layoutY="226.0" text="Do you want to have food in your funeral ceremony?" />
+            <Label layoutX="23.0" layoutY="226.0" text="Do you want to have food in your funeral ceremony?" textFill="WHITE" />
             <TextField fx:id="food" layoutX="23.0" layoutY="253.0" prefHeight="27.0" prefWidth="539.0" />
-            <Label layoutX="23.0" layoutY="298.0" text="Do you want to have music? If so, what music do you prefer to listen to?" />
+            <Label layoutX="23.0" layoutY="298.0" text="Do you want to have music? If so, what music do you prefer to listen to?" textFill="WHITE" />
             <TextField fx:id="music" layoutX="23.0" layoutY="325.0" prefHeight="27.0" prefWidth="538.0" />
-            <Label layoutX="23.0" layoutY="369.0" text="How many guest do pretend to have?" />
+            <Label layoutX="23.0" layoutY="369.0" text="How many guests do you want?" textFill="WHITE" />
             <TextField fx:id="guests" layoutX="26.0" layoutY="398.0" prefHeight="27.0" prefWidth="532.0" />
-             <Label layoutX="23.0" layoutY="443.0" text="Any special sugestion?" />
+             <Label layoutX="23.0" layoutY="443.0" text="Any special sugestion?" textFill="#fffefe" />
              <TextField fx:id="special_request" layoutX="28.0" layoutY="473.0" prefHeight="27.0" prefWidth="532.0" />
-             <Label layoutX="23.0" layoutY="515.0" text="How much would you be willing to spend on the ceremony?" />
+             <Label layoutX="23.0" layoutY="515.0" text="How much would you be willing to spend on the ceremony?" textFill="WHITE" />
              <TextField fx:id="budget" layoutX="28.0" layoutY="550.0" prefHeight="27.0" prefWidth="532.0" />
              <Button fx:id="btn_submit" layoutX="257.0" layoutY="624.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
              <Button fx:id="btn_delete" layoutX="235.0" layoutY="665.0" mnemonicParsing="false" onAction="#delete" text="Delete you plan" />
-            <Label fx:id="submit_label" layoutX="271.0" layoutY="589.0" visible="false"/>
+            <Label fx:id="submit_label" layoutX="271.0" layoutY="589.0" textFill="WHITE" visible="false" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

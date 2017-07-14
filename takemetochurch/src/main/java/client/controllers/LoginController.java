@@ -112,8 +112,4 @@ public class LoginController implements Initializable {
         type.setText(message);
         type.setVisible(true);
     }
-
-    /*private void playSound() {
-        new MediaPlayer(new Media(getClass().getResource("/takemetochurch.mp3").toString())).play();
-    }*/
 }

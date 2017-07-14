@@ -20,6 +20,13 @@
     -fx-background-position: center center;
 }
 
+.backgroundImage{
+    -fx-background-image: url("/images/coffin.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 600 750;
+    -fx-background-position: center center;
+}
+
 .text-field{
      -fx-opacity: 0.6;
  }
