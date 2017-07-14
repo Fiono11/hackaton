@@ -37,8 +37,8 @@ public class Strategy {
                 String lastName = map.get(Values.LAST_NAME);
                 String email = map.get(Values.EMAIL);
 
-                User user = new User(username, firstName,lastName, password, email);
-                userService.addData(Values.USERDAO,user);
+                //User user = new User(username, firstName,lastName, password, email);
+                //userService.addData(Values.USERDAO,user);
                 break;
             //TODO add the other cases
         }

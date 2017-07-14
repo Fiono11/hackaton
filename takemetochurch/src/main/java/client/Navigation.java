@@ -38,6 +38,7 @@ public class Navigation {
             String path = PREFIX + view + SUFFIX;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
             Parent root = fxmlLoader.load();
+            root.getStylesheets().add("/css/style.css");
 
             controllers.put(view, fxmlLoader.<Initializable>getController());
 

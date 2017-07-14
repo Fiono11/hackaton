@@ -1,0 +1,6 @@
+.backgroundImage{
+    -fx-background-image : url("../images/coffin.jpeg");
+    -fx-background-position: center;
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
