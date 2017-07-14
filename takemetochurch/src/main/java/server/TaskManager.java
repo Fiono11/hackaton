@@ -22,6 +22,12 @@ public class TaskManager implements Runnable {
 
         while (true){
 
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             if(!taskQueue.isEmpty()){
                 //TODO create shutdown task to end
                 deadpool.submit(taskQueue.poll());

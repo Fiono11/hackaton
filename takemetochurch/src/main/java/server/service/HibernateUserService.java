@@ -33,12 +33,16 @@ public class HibernateUserService {
 
         User user = findByName(username);
         if (user != null && user.getPassword().equals(password)) {
+            //System.out.println("estou auth");
             return true;
         }
         return false;
     }
 
     public <T extends Data> void addData(String daoName, T data) {
+
+        System.out.println("im in userservice");
+        System.out.println(data);
         try {
             transactionManager.transaction();
 
@@ -67,7 +71,6 @@ public class HibernateUserService {
 
     public User findByName(String username) {
         User user = null;
-
         try {
             transactionManager.transaction();
             user = userDao.findByName(username);
@@ -77,7 +80,6 @@ public class HibernateUserService {
             transactionManager.rollback();
             e.printStackTrace();
         }
-
         return user;
     }
 

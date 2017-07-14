@@ -59,15 +59,18 @@ public class LoginController implements Initializable {
 
         Map<String, String> map = new HashMap<>();
 
-        map.put(Values.USERNAME, lbl_username.getText());
-        map.put(Values.PASSWORD, lbl_password.getText());
+        map.put(Values.USERNAME, tf_username.getText());
+        map.put(Values.PASSWORD, tf_password.getText());
 
         Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
         System.out.println(message);
         communication.write(message);
+        //Navigation.getInstance().loadScreen("menu");
+        //communication.read();
 
         Message input = communication.read();
 
+        System.out.println(input);
         if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
             Navigation.getInstance().loadScreen("menu");
         }

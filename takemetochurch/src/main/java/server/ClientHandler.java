@@ -37,9 +37,7 @@ public class ClientHandler implements Runnable {
             message = communication.read();
 
             Task task = new Task(message.getMapContent(), message.getType(),server.getHibernateUserService(), communication);
-            task.setUpStrategy(message.getType());
             server.getTaskQueue().add(task);
-
         }
 
     }

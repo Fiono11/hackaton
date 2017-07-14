@@ -29,6 +29,8 @@ public class Strategy {
         switch (type) {
             case LOGIN:
                 boolean b = userService.authenticate(Values.USERDAO, map.get(Values.USERNAME), map.get(Values.PASSWORD));
+
+
                 HashMap<String, String> map1 = new HashMap<>();
                 if (b == true) {
                     map1.put(Values.RESPONSE, Values.OK);

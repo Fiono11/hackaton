@@ -43,7 +43,8 @@ public class Server {
 
         ExecutorService cachedPool = Executors.newCachedThreadPool();
 
-
+        TaskManager taskManager = new TaskManager(taskQueue);
+        cachedPool.submit(taskManager);
 
         while (true) {
 
