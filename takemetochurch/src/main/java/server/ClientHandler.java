@@ -29,15 +29,17 @@ public class ClientHandler implements Runnable {
 
     private void readClient() {
 
-        boolean logged = false;
         Message message = null;
 
-        while(!logged){
+        while(true){
 
             message = communication.read();
 
+            System.out.println(message.toString());
+
             Task task = new Task(message.getMapContent(), message.getType(),server.getHibernateUserService(), communication);
             server.getTaskQueue().add(task);
+            System.out.println(task.toString());
         }
 
     }

@@ -26,10 +26,12 @@ public class Strategy {
 
     void action(HashMap<String, String> map, Communication communication) {
 
+
+        System.out.println(map);
+
         switch (type) {
             case LOGIN:
                 boolean b = userService.authenticate(Values.USERDAO, map.get(Values.USERNAME), map.get(Values.PASSWORD));
-
 
                 HashMap<String, String> map1 = new HashMap<>();
                 if (b == true) {
@@ -80,7 +82,9 @@ public class Strategy {
                 userService.removeData(Values.LIFEDAO,life3);
                 break;
             case DEATH_C:
+                System.out.println("death_c");
                 Death death = creatDeath(map);
+                System.out.println("death " + death.toString());
                 userService.addData(Values.DEATHDAO,death);
                 break;
             case DEATH_R:
@@ -89,7 +93,10 @@ public class Strategy {
                 communication.write(message3);
                 break;
             case DEATH_U:
+                System.out.println("death_u");
                 Death death2 = creatDeath(map);
+                System.out.println("abc");
+                System.out.println("death " + death2.toString());
                 userService.updateData(Values.DEATHDAO,death2);
                 break;
             case DEATH_D:
@@ -102,14 +109,18 @@ public class Strategy {
     }
 
     private Message createDeathMessage(Death death1) {
-
         HashMap<String,String> map = new HashMap<>();
+
+        if(death1 != null){
+
+
         map.put(Values.CEREMONY,death1.getCeremony());
         map.put(Values.BODYTREAMENT,death1.getBodyTreatment());
         map.put(Values.MUSIC,death1.getMusic());
         map.put(Values.RELIGION,death1.getReligion());
         map.put(Values.NUMBEROFGUESTS,Integer.toString(death1.getNumberOfGuests()));
         map.put(Values.BUDGET,Integer.toString(death1.getBudget()));
+        }
 
         return new Message(type,map);
     }

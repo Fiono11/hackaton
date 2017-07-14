@@ -37,4 +37,11 @@ public class Task implements Runnable{
     public void run() {
         strategy.action(content, communication);
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "content=" + content +
+                '}';
+    }
 }
