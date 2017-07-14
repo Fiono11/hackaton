@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import shared.Communication;
 import shared.Message;
 import shared.MessageType;
@@ -169,6 +171,8 @@ public class LifeController implements Initializable {
 
     public void generateBucketList() {
 
+        addSound();
+
         if (i > 0) {
             addToDos();
         }
@@ -206,5 +210,14 @@ public class LifeController implements Initializable {
         toDos.add("Have Sexual Intercourse in Space");
         toDos.add("Kick Kim Kardashian");
         toDos.add("Nail Cyrille's Cousin");
+    }
+
+    public void addSound() {
+        new MediaPlayer(new Media(getClass().getResource("/drumroll.mp3").toString())).play();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

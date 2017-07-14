@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import shared.Communication;
 import shared.Message;
 import shared.MessageType;
@@ -51,6 +53,7 @@ public class DeathController implements Initializable {
         bodyDestiny.setItems(bodyDestinies);
         communication = Navigation.getInstance().getCommunication();
         //unnullifie();
+        addSound();
     }
 
     @FXML
@@ -71,5 +74,9 @@ public class DeathController implements Initializable {
         location.setText("");
         officiator.setText("");
         contact.setText("");
+    }
+
+    public void addSound() {
+        new MediaPlayer(new Media(getClass().getResource("/death.mp3").toString())).play();
     }
 }
