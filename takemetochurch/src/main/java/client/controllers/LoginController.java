@@ -78,6 +78,10 @@ public class LoginController implements Initializable {
                 Navigation.getInstance().loadScreen("menu");
                 return;
             }
+            else {
+                lbl_logininfo.setText("Wrong login credentials");
+                lbl_logininfo.setVisible(true);
+            }
             // TODO: 14/07/17 wrong credentials
 
         }
