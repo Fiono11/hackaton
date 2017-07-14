@@ -18,13 +18,12 @@ public class User implements Data {
     public User() {
     }
 
-    public User(String username, String firstName, String lastName, String password, String email, String phoneNumber) {
+    public User(String username, String firstName, String lastName, String password, String email) {
         this.username = username;
         this.lastName = lastName;
         this.password = password;
         this.firstName = firstName;
         this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
     public String getLastName() {

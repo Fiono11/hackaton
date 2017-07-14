@@ -1,10 +1,6 @@
 package server.service;
 
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 import server.model.Data;
 import server.model.Death;
 import server.model.Life;

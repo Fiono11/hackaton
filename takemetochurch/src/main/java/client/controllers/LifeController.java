@@ -183,28 +183,28 @@ public class LifeController implements Initializable {
 
     public void addToDos() {
         toDos.add("Hack Elton Jorge");
-        toDos.add("Flip on a Trampoline");
-        toDos.add("Get a Tattoo");
+        toDos.add("Flip on a trampoline");
+        toDos.add("Get a tattoo");
         toDos.add("Fight a Shark");
-        toDos.add("Drink Pee");
-        toDos.add("Chase a Tornado");
-        toDos.add("Feed a Crocodile");
-        toDos.add("Compete in a Frog Jumping Contest");
+        toDos.add("Find Fiona");
+        toDos.add("Chase a tornado");
+        toDos.add("Feed a crocodile");
+        toDos.add("Compete in a frog jumping contest");
         toDos.add("Cenas");
-        toDos.add("Milk a Cow");
+        toDos.add("Milk a cow");
         toDos.add("Do a Hackaton");
-        toDos.add("Go to Covilhã by Foot");
-        toDos.add("Whale Watching");
+        toDos.add("Go to Covilhã by foot");
+        toDos.add("Whale watching");
         toDos.add("Read Terms and Conditions");
-        toDos.add("Play the Cookie Game");
-        toDos.add("Be on a TV Show");
-        toDos.add("Masturbate in Public");
+        toDos.add("Play the cookie game");
+        toDos.add("Be on a TV show");
+        toDos.add("Masturbate in public");
         toDos.add("Punch Donald Trump");
-        toDos.add("Overdose on Marijuana");
-        toDos.add("Cure Cancer");
-        toDos.add("Achieve World Peace");
-        toDos.add("Have Sexual Intercourse in Space");
+        toDos.add("Overdose on marijuana");
+        toDos.add("Cure cancer");
+        toDos.add("Achieve world peace");
+        toDos.add("Have sexual intercourse in space");
         toDos.add("Kick Kim Kardashian");
-        toDos.add("Nail Cyrille's Cousin");
+        toDos.add("Nail Cyrille's cousin");
     }
 }

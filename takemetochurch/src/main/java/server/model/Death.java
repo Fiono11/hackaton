@@ -17,14 +17,13 @@ public class Death implements Data {
     public Death() {
     }
 
-    public Death(String ceremony, String bodyTreatment, String music, int numberOfGuests, String religion, int budget, String specialRequest) {
+    public Death(String ceremony, String bodyTreatment, String music, int numberOfGuests, String religion, int budget) {
         this.ceremony = ceremony;
         this.bodyTreatment = bodyTreatment;
         this.music = music;
         this.numberOfGuests = numberOfGuests;
         this.religion = religion;
         this.budget = budget;
-        this.specialRequest = specialRequest;
     }
 
     public long getId() {
