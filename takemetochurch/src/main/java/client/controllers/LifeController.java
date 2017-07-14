@@ -129,17 +129,6 @@ public class LifeController implements Initializable {
     public void generateBucketList() {
 
         addSound();
-
-        if (i > 0) {
-            addToDos();
-        }
-
-        for (TextField textField: textFields) {
-            int number = (int) (Math.random() * toDos.size());
-                textField.setText(toDos.get(number));
-                toDos.remove(number);
-        }
-        i++;
     }
 
     public void addToDos() {
@@ -170,11 +159,22 @@ public class LifeController implements Initializable {
     }
 
     public void addSound() {
-        new MediaPlayer(new Media(getClass().getResource("/drumroll.mp3").toString())).play();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/drumroll.mp3").toString()));
+        mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                if (i > 0) {
+                    addToDos();
+                }
+
+                for (TextField textField: textFields) {
+                    int number = (int) (Math.random() * toDos.size());
+                    textField.setText(toDos.get(number));
+                    toDos.remove(number);
+                }
+                i++;
+            }
+        });
     }
 }
