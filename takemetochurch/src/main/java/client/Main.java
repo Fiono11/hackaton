@@ -25,7 +25,6 @@ public class Main extends Application {
         Navigation.getInstance().setCommunication(communication);
         Navigation.getInstance().setStage(primaryStage);
         Navigation.getInstance().loadScreen("login");
-        System.out.println(communication);
     }
 
     public static void main(String[] args) {
