@@ -7,8 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
+import shared.Communication;
+import shared.Message;
+import shared.MessageType;
+import shared.Values;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -25,13 +32,44 @@ public class DeathController implements Initializable {
     @FXML
     private ChoiceBox<String> bodyDestiny;
 
+    private Communication communication;
+
+    @FXML
+    private Button btn_submit;
+
+    @FXML
+    private TextField location;
+
+    @FXML
+    private TextField officiator;
+
+    @FXML
+    private TextField contact;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bodyDestiny.setItems(bodyDestinies);
+        communication = Navigation.getInstance().getCommunication();
+        //unnullifie();
     }
 
     @FXML
     public void back() {
         Navigation.getInstance().back();
+    }
+
+    public void submit() {
+        Map<String, String> map = new HashMap<>();
+        map.put(Values.LOCATION, location.getText());
+        map.put(Values.OFFICIATOR, officiator.getText());
+        map.put(Values.CONTACT, contact.getText());
+        Message message = new Message(MessageType.DEATH, (HashMap<String, String>) map);
+        communication.write(message);
+    }
+
+    public void unnullifie() {
+        location.setText("");
+        officiator.setText("");
+        contact.setText("");
     }
 }

@@ -3,12 +3,22 @@ package client.controllers;
 import client.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import client.utils.Verification;
+import shared.Communication;
+import shared.Message;
+import shared.MessageType;
+import shared.Values;
 import javafx.scene.layout.GridPane;
-import utils.Verification;
 
 
-public class LoginController {
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
+public class LoginController implements Initializable {
 
     @FXML
     private TextField tf_username;
@@ -34,6 +44,13 @@ public class LoginController {
     @FXML
     private GridPane back_login;
 
+    private Communication communication;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        communication = Navigation.getInstance().getCommunication();
+    }
+
     @FXML
     void onLogin(ActionEvent event) {
         Verification.cleanLoginMsg(lbl_username, lbl_password, lbl_logininfo);
@@ -41,12 +58,27 @@ public class LoginController {
 
         if (!emptyField()) {
 
-            // TODO: 13/07/17 filled fields send message
-
             lbl_logininfo.setVisible(false);
-        }
+            Map<String, String> map = new HashMap<>();
 
-        Navigation.getInstance().loadScreen("menu");
+            map.put(Values.USERNAME, tf_username.getText());
+            map.put(Values.PASSWORD, tf_password.getText());
+
+            Message message = new Message(MessageType.LOGIN, (HashMap<String, String>) map);
+            System.out.println(message);
+            communication.write(message);
+            System.out.println("message "+ message);
+
+            Message input = communication.read();
+
+            System.out.println(input);
+            if (input != null && input.getType() == MessageType.LOGIN && input.getMapContent().get(Values.RESPONSE).equals(Values.OK)) {
+                Navigation.getInstance().loadScreen("menu");
+                return;
+            }
+            // TODO: 14/07/17 wrong credentials
+
+        }
     }
 
     @FXML
@@ -71,7 +103,7 @@ public class LoginController {
         return fieldEmpty;
     }
 
-    private <T extends Labeled> void setText(T type, String message){
+    private <T extends Labeled> void setText(T type, String message) {
         type.setText(message);
         type.setVisible(true);
     }

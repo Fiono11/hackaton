@@ -3,3 +3,23 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+
+    <class name="server.model.Life" table="life">
+        <id name="id" type="long" column="id">
+            <generator class="identity"/>
+        </id>
+
+        <property name="prop1" type="string" column="prop1"/>
+        <property name="prop2" type="string" column="prop2"/>
+        <property name="prop3" type="string" column="prop3"/>
+        <property name="prop4" type="string" column="prop4"/>
+        <property name="prop5" type="string" column="prop5"/>
+        <property name="prop6" type="string" column="prop6"/>
+        <property name="prop7" type="string" column="prop7"/>
+        <property name="prop8" type="string" column="prop8"/>
+        <property name="prop9" type="string" column="prop9"/>
+
+
+    </class>
+
+</hibernate-mapping>

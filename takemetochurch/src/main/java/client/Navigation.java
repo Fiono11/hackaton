@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import shared.Communication;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class Navigation {
     private final String SUFFIX = ".fxml";
 
     private static Navigation instance;
+    private Communication communication;
 
     private LinkedList<Scene> scenes = new LinkedList<>();
     private Map<String, Initializable> controllers = new HashMap<>();
@@ -93,6 +95,14 @@ public class Navigation {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    public Communication getCommunication() {
+        return communication;
+    }
+
+    public void setCommunication(Communication communication) {
+        this.communication = communication;
     }
 }
 
