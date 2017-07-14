@@ -30,6 +30,7 @@ public class TaskManager implements Runnable {
 
             if(!taskQueue.isEmpty()){
                 //TODO create shutdown task to end
+                System.out.println("task a ser tratada");
                 deadpool.submit(taskQueue.poll());
             }
 
