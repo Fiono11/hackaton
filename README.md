@@ -6,7 +6,7 @@ Created by Code Cadet
 * Rui - @Fiono11
 * Cyrille Feijó - @cyrokas
 * Helder Matos - @MatosHM
-* Fabio Fernandes - @
+* Fabio Fernandes - @9kayer
 * Robin Opiniao- @ToxicLord
 
 This is last Project developed during the 12th week of Academia de Código's 8th bootcamp, the duration of this project was 24 hours.
